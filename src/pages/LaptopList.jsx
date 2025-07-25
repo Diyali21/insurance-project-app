@@ -1,0 +1,37 @@
+import { Laptop } from "../assets/components/Laptop";
+
+export function LaptopList() {
+
+  const laptops = [
+    {
+      brand: "https://logos-world.net/wp-content/uploads/2022/07/Lenovo-Logo.png",
+      model: "ThinkPad X1 Carbon Gen 11",
+      condition: "New",
+      type: "Ultrabook",
+      processor: "Intel Core i7-1355U",
+      sNo: "PF3Y9HQF",
+      purchase_date: "2023-11-02",
+      current_value: 17950,
+    },
+    {
+      brand: "https://tse2.mm.bing.net/th/id/OIP.7IEX1sqp0oZ7C8Y9wByESgHaEK?rs=1&pid=ImgDetMain&o=7&rm=3",
+      model: "HP Spectre x360 14",
+      condition: "New",
+      type: "Convertible",
+      processor: "Intel Core i7-1255U",
+      sNo: "5CD3456XYZ",
+      purchase_date: "2023-11-02",
+      current_value: 14000,
+    }
+  ];
+
+  return (
+    <div>
+      <section className="laptop-list-container">
+        {laptops.map((laptop, index) => (
+          <Laptop key={index} laptop={laptop} />
+        ))}
+      </section>
+    </div>
+  );
+}
