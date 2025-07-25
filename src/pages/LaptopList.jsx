@@ -16,7 +16,7 @@ export function LaptopList() {
     {
       brand: "https://tse2.mm.bing.net/th/id/OIP.7IEX1sqp0oZ7C8Y9wByESgHaEK?rs=1&pid=ImgDetMain&o=7&rm=3",
       model: "HP Spectre x360 14",
-      condition: "New",
+      condition: "Used",
       type: "Convertible",
       processor: "Intel Core i7-1255U",
       sNo: "5CD3456XYZ",
