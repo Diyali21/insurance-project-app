@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEdit } from "@fortawesome/free-solid-svg-icons";
 
 export function Laptop({ laptop }) {
 
@@ -34,7 +36,7 @@ export function Laptop({ laptop }) {
   return (
     <div className="laptop-list-container">
       <div className="laptop-container">
-        {/* Laptop 1 */}
+        <h1 className="update-icon"><FontAwesomeIcon icon={faEdit} size="0.5x" /></h1>
         <img className="laptop-brand" src={laptop.brand} alt={laptop.model} />
         <div className="laptop-content-container">
           <div className="laptop-specs">
@@ -51,6 +53,7 @@ export function Laptop({ laptop }) {
           <div className="view-btn-container">
            <button className="view-btn" onClick={() => setShow((!show))}> {show ? "View Less": "View More"}</button>
            </div>
+           <button className="quote-btn">Get A Quote ➡️</button>
         </div>
       </div>
     </div>

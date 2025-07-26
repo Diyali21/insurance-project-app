@@ -1,137 +1,18 @@
-.App {
-  font-family: "Poppins", sans-serif;
-}
-
-.laptop-content-container {
-  padding: 16px;
-}
-
-.laptop-container {
-  width: 340px;
-  border: 1px solid #ccc;
-  border-radius: 14px;
-  overflow: hidden;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.laptop-brand {
-  height: 300px;
-  width: 100%;
-  object-fit: contain;
-  border-radius: 6px;
-}
-
-.laptop-condition {
-  font-size: 20px;
-  margin-top: 0;
-  display: inline-block;
-  padding: 5px 15px;
-  border-radius: 20px;
-  font-size: 14px;
-  font-weight: 600;
-  margin-bottom: 15px;
-  max-width: 50%;
-}
-
-.laptop-specs {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 1rem;
-}
-
-.laptop-model {
-  font-size: 24px;
-  margin: 0;
-}
-
-.laptop-list-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  gap: 32px;
-  margin-top: 50px;
-}
-
-.nav-link-container {
-  display: flex;
-  list-style: none;
-  justify-content: center;
-  gap: 70px;
-  padding: 0px;
-}
-
-.nav-link-container a {
-  text-decoration: none;
-  color: black;
-  font-size: 25px;
-}
-.spacing-words {
-  margin-top: 75px;
-}
-
-a:hover {
-  color: #c71585;
-}
-
-.nav-link.active {
-  color: #c71585;
-}
-
-.search-model {
-  border: 1px solid;
-  border-radius: 10px;
-  font-size: 16px;
-  height: 4vh;
-  width: 500px;
-}
-
-.search-model:hover,
-.search-model:focus {
-  /* background-color: #e0f7fa; */
-  box-shadow: 0 0 6px #007bff;
-  /* border-color: #007bff; */
-}
-
-.search-model::placeholder {
-  opacity: 1;
-  transition: opacity 0.5s ease;
-}
-
-.search-model:hover::placeholder {
-  opacity: 0;
-}
-
-.search-model-container {
+.new-laptop-container {
   display: grid;
-  margin-top: 70px;
   justify-content: center;
 }
-/*
-.filter-brand-container {
-} */
 
-.filter-brand {
-  border: 1px solid;
-  border-radius: 10px;
-  font-size: 16px;
-  height: 4vh;
-  width: 150px;
+.new-laptop-form {
+  width: 800px;
 }
 
-.view-btn {
-  font-size: 20px;
-  margin-top: 0;
-  display: inline-block;
-  padding: 5px 15px;
-  border-radius: 20px;
-  font-size: 14px;
-  font-weight: 500;
-  margin-bottom: 15px;
-  max-width: 50%;
-  background-color: #e0e0e0;
+.document-layout {
+  display: grid;
+  margin-left: 12px;
+  gap: 10px;
 }
 
-.view-btn-container {
-  margin-top: 20px;
+.submit-container {
+  margin-top: 30px;
 }

@@ -9,6 +9,9 @@ export const laptops = [
       sNo: "PF3Y9HQF",
       purchase_date: "2023-11-02",
       current_value: 17950,
+      fullName: "John Wick",
+      email: "johnwick@gmail.com",
+      contactNo: "0745234568",
     },
     {
       brand: "https://tse2.mm.bing.net/th/id/OIP.7IEX1sqp0oZ7C8Y9wByESgHaEK?rs=1&pid=ImgDetMain&o=7&rm=3",
@@ -20,5 +23,8 @@ export const laptops = [
       sNo: "5CD3456XYZ",
       purchase_date: "2023-11-02",
       current_value: 14000,
+      fullName: "Chuck Bartowski",
+      email: "chuck@gmail.com",
+      contactNo: "0745234568",
     }
   ];
