@@ -37,7 +37,7 @@ export function Laptop({ laptop }) {
     <div className="laptop-list-container">
       <div className="laptop-container">
         <h1 className="update-icon"><FontAwesomeIcon icon={faEdit} size="0.5x" /></h1>
-        <img className="laptop-brand" src={laptop.brand} alt={laptop.model} />
+        <img className="laptop-brand" src={laptop.brandImage} alt={laptop.model} />
         <div className="laptop-content-container">
           <div className="laptop-specs">
             <h2 className="laptop-model">{laptop.model}</h2>

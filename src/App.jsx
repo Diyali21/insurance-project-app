@@ -15,6 +15,7 @@ import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 import { useState } from "react";
 import { INITIAL_LAPTOPS } from "./assets/components/INITIAL_LAPTOPS";
+import {BRAND_LOGOS} from "./assets/components/BRAND_LOGOS";
 
 export default function App() {
 
@@ -73,7 +74,7 @@ const validationSchema = yup.object({
   fullName: yup.string().required('Full Name is required'),
   email: yup.string().email('Enter a valid email').required('Email is required'),
   contactNo: yup.string().required('Contact Number is required'),
-  brand: yup.string().required('Brand is required'),
+  brandName: yup.string().required('Brand is required'),
   model: yup.string().required('Model is required'),
   type: yup.string().required('Type is required'),
   condition: yup.string().required('Condition is required'),
@@ -89,7 +90,7 @@ const validationSchema = yup.object({
       fullName: '',
       email: '',
      contactNo: '',
-      brand: '',
+      brandName: '',
       model: '',
       type: '',
       condition: '',
@@ -100,10 +101,12 @@ const validationSchema = yup.object({
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
-      console.log('New Laptop: ', values);
-      setLaptops([...laptop_details, values]);
+
+      const newLaptop = {...values, brandImage: BRAND_LOGOS[values.brandName]}
+      console.log('New Laptop: ', newLaptop);
+      setLaptops([...laptop_details, newLaptop]);
       navigate('/dashboard', {replace: true});
-      alert(`Form submitted for laptop: ${values.brand}, ${values.model}`)
+      alert(`Form submitted for laptop: ${values.brandName}, ${values.model}`)
     },
   });
 
@@ -164,14 +167,14 @@ const validationSchema = yup.object({
       <TextField
         select
         fullWidth
-        id="brand"
-        name="brand"
+        id="brandName"
+        name="brandName"
         label="Brand"
-        value={formik.values.brand}
+        value={formik.values.brandName}
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
-        error={formik.touched.brand && Boolean(formik.errors.brand)}
-        helperText={formik.touched.brand && formik.errors.brand}
+        error={formik.touched.brandName && Boolean(formik.errors.brandName)}
+        helperText={formik.touched.brandName && formik.errors.brandName}
       >
         {laptopBrands.map((option) => (
           <MenuItem key={option} value={option}>

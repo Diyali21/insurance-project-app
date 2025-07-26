@@ -1,6 +1,6 @@
 export const INITIAL_LAPTOPS = [
     {
-      brand: "https://logos-world.net/wp-content/uploads/2022/07/Lenovo-Logo.png",
+      brandImage: "https://logos-world.net/wp-content/uploads/2022/07/Lenovo-Logo.png",
       brandName: "Lenovo",
       model: "ThinkPad X1 Carbon Gen 11",
       condition: "New",
@@ -14,7 +14,7 @@ export const INITIAL_LAPTOPS = [
       contactNo: "0745234568",
     },
     {
-      brand: "https://tse2.mm.bing.net/th/id/OIP.7IEX1sqp0oZ7C8Y9wByESgHaEK?rs=1&pid=ImgDetMain&o=7&rm=3",
+      brandImage: "https://tse2.mm.bing.net/th/id/OIP.7IEX1sqp0oZ7C8Y9wByESgHaEK?rs=1&pid=ImgDetMain&o=7&rm=3",
       brandName: "HP",
       model: "HP Spectre x360 14",
       condition: "Used",
