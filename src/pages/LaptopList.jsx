@@ -1,9 +1,9 @@
 import { Laptop } from "../assets/components/Laptop";
-import { laptops } from "../assets/components/laptops";
 import { FilterBrand } from "./FilterBrand";
 import { SearchModel } from "./SearchModel";
 
-export function LaptopList() {
+export function LaptopList({laptop_details}) {
+
 
   return (
     <div>
@@ -12,7 +12,7 @@ export function LaptopList() {
       </div>
       <section className="laptop-list-container">
         <FilterBrand/>
-        {laptops.map((laptop, index) => (
+        {laptop_details .map((laptop, index) => (
           <Laptop key={index} laptop={laptop} />
         ))}
       </section>

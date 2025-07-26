@@ -1,22 +1,24 @@
 import { LaptopList } from "./pages/LaptopList";
 import "./dashboard.css";
 import "./styles.css";
-import { Routes, Route, Link, Navigate } from "react-router";
+import { Routes, Route, Link, Navigate, useNavigate } from "react-router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHouse, faLaptop } from "@fortawesome/free-solid-svg-icons";
-import { useFormik } from 'formik';
+import { Formik, useFormik } from 'formik';
 import * as yup from 'yup';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import MenuItem from "@mui/material/MenuItem";
 import { NumericFormat } from "react-number-format";
-import InputLabel from "@mui/material/InputLabel";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
+import { useState } from "react";
+import { INITIAL_LAPTOPS } from "./assets/components/INITIAL_LAPTOPS";
 
 export default function App() {
 
+  const [laptop_details, setLaptops] = useState(INITIAL_LAPTOPS );
 
   return (
       <div className="App">
@@ -35,8 +37,8 @@ export default function App() {
         <Routes>
         <Route path="" element={<Navigate to="/dashboard" replace />} />
         <Route path="home" element={<Navigate to="/dashboard" replace />} />
-        <Route path="/dashboard" element={<LaptopList />} />
-        <Route path="/laptop/new" element={<NewLaptop />} />
+        <Route path="/dashboard" element={<LaptopList laptop_details={laptop_details}/>} />
+        <Route path="/laptop/new" element={<NewLaptop laptop_details={laptop_details} setLaptops={setLaptops}/>} />
 
         {/* <Route path="/laptop/new" element={}></Route> */}
         </Routes>
@@ -44,7 +46,9 @@ export default function App() {
   );
 }
 
-function NewLaptop(){
+function NewLaptop({laptop_details, setLaptops}){
+
+  const navigate = useNavigate();
 
   const laptopTypes = ['Ultrabook', 'Gaming', 'Workstation', 'Convertible', 'Business', 'Chromebook', 'MacBook'];
   const conditions = ['New', 'Used', 'Refurbished'];
@@ -60,9 +64,10 @@ function NewLaptop(){
   'AMD Ryzen 7',
   'Apple M2',
   'Apple M3',
-  'Apple M4',,
+  'Apple M4',
   'Qualcomm Snapdragon X Elite',
 ];
+
 
 const validationSchema = yup.object({
   fullName: yup.string().required('Full Name is required'),
@@ -73,27 +78,32 @@ const validationSchema = yup.object({
   type: yup.string().required('Type is required'),
   condition: yup.string().required('Condition is required'),
   processor: yup.string().required('Processor is required'),
-  serialNo: yup.string().required('Serial Number is required'),
-  purchaseDate: yup.date().required('Purchase Date is required'),
-  document: yup.mixed().required('Document upload required'),
+  sNo: yup.string().required('Serial Number is required'),
+  current_value: yup.number().required('Current Value is required'),
+  purchase_date: yup.date().required('Purchase Date is required'),
 });
 
   const formik = useFormik({
+
     initialValues: {
+      fullName: '',
+      email: '',
+     contactNo: '',
       brand: '',
       model: '',
       type: '',
       condition: '',
       processor: '',
-      serialNo: '',
-      purchaseDate: '',
-      currentValue: '',
-      document: null,
+      sNo: '',
+      purchase_date: '',
+      current_value: '',
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
       console.log('New Laptop: ', values);
-      alert(`Form submitted for ${values.brand}, ${values.model}`)
+      setLaptops([...laptop_details, values]);
+      navigate('/dashboard', {replace: true});
+      alert(`Form submitted for laptop: ${values.brand}, ${values.model}`)
     },
   });
 
@@ -130,19 +140,21 @@ const validationSchema = yup.object({
       >
       </TextField>
 
-      <NumericFormat
-      customInput={TextField}
-      fullWidth
-        id="contactNo"
-        name="contactNo"
-        label="Contact Number"
-        format="0#########"
-        value={formik.values.contactNo}
-        onValueChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        error={formik.touched.contactNo && Boolean(formik.errors.contactNo)}
-        helperText={formik.touched.contactNo && formik.errors.contactNo}
-      />
+     <NumericFormat
+            customInput={TextField}
+            fullWidth
+            id="contactNo"
+            name="contactNo"
+            label="Contact Number"
+            format="0#########"
+            value={formik.values.contactNo}
+            onValueChange={(values) => {
+              formik.setFieldValue('contactNo', values.value);
+            }}
+            onBlur={formik.handleBlur}
+            error={formik.touched.contactNo && Boolean(formik.errors.contactNo)}
+            helperText={formik.touched.contactNo && formik.errors.contactNo}
+          />
         </Grid>
 
         <Divider sx={{ my: 4 }} />
@@ -240,62 +252,51 @@ const validationSchema = yup.object({
 
       <TextField
         fullWidth
-        id="serialNo"
-        name="serialNo"
+        id="sNo"
+        name="sNo"
         label="Serial Number"
-        value={formik.values.serialNo}
+        value={formik.values.sNo}
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
-        error={formik.touched.serialNo && Boolean(formik.errors.serialNo)}
-        helperText={formik.touched.serialNo && formik.errors.serialNo}
+        error={formik.touched.sNo && Boolean(formik.errors.sNo)}
+        helperText={formik.touched.sNo && formik.errors.sNo}
       >
       </TextField>
 
       <TextField
         fullWidth
-        id="purchaseDate"
-        name="purchaseDate"
+        id="purchase_date"
+        name="purchase_date"
         label="Purchase Date"
         type="date"
         InputLabelProps={{ shrink: true }}
-        value={formik.values.purchaseDate}
+        value={formik.values.purchase_date}
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
-        error={formik.touched.purchaseDate && Boolean(formik.errors.purchaseDate)}
-        helperText={formik.touched.purchaseDate && formik.errors.purchaseDate}
+        error={formik.touched.purchase_date && Boolean(formik.errors.purchase_date)}
+        helperText={formik.touched.purchase_date && formik.errors.purchase_date}
       >
       </TextField>
+
       <NumericFormat
         customInput={TextField}
         fullWidth
-        id="currentValue"
-        name="currentValue"
+        id="current_value"
+        name="current_value"
         label="Current Value (R)"
         thousandSeparator
         decimalScale={2}
         fixedDecimalScale
         prefix="R"
-        value={formik.values.currentValue}
-        onValueChange={formik.handleChange}
+        value={formik.values.current_value}
+        onValueChange={(values) => {
+              formik.setFieldValue('current_value', values.value);
+            }}
         onBlur={formik.handleBlur}
-        error={formik.touched.currentValue && Boolean(formik.errors.currentValue)}
-        helperText={formik.touched.currentValue && formik.errors.currentValue}
+        error={formik.touched.current_value && Boolean(formik.errors.current_value)}
+        helperText={formik.touched.current_value && formik.errors.current_value}
       />
 
-      <div className="document-layout">
-      <InputLabel htmlFor="document" sx={{mt:2}}>Upload Document:</InputLabel>
-      <input
-      type="file"
-      id="document"
-      name="document"
-      accept=".pdf"
-      value={formik.values.document}
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        error={formik.touched.document && Boolean(formik.errors.document)}
-        helperText={formik.touched.document && formik.errors.document}
-       />
-       </div>
        </Grid>
        <div className="submit-container">
         <Button color="primary" variant="contained" fullWidth type="submit">

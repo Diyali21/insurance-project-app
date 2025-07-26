@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { Laptop } from "../assets/components/Laptop";
-import { laptops } from "../assets/components/laptops";
+import { INITIAL_LAPTOPS  } from "../assets/components/INITIAL_LAPTOPS";
 
 export function SearchModel() {
   const [model, setModel] = useState("");
 
-  const searchLaptop = laptops.filter((laptop) => laptop.model.toLowerCase().includes(model.toLowerCase()));
+  const searchLaptop = INITIAL_LAPTOPS .filter((laptop) => laptop.model.toLowerCase().includes(model.toLowerCase()));
 
   return (
     <div>

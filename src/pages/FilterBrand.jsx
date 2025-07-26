@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { Laptop } from "../assets/components/Laptop";
-import { laptops } from "../assets/components/laptops";
+import { INITIAL_LAPTOPS } from "../assets/components/INITIAL_LAPTOPS";
 
 export function FilterBrand() {
 
   const [brandName, setBrandName] = useState("");
 
-  const filteredBrand = laptops.filter((laptop) => laptop.brandName.includes(brandName));
+  const filteredBrand = INITIAL_LAPTOPS .filter((laptop) => laptop.brandName.includes(brandName));
 
   return (
     <div>

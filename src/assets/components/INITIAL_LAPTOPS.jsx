@@ -1,4 +1,4 @@
-export const laptops = [
+export const INITIAL_LAPTOPS = [
     {
       brand: "https://logos-world.net/wp-content/uploads/2022/07/Lenovo-Logo.png",
       brandName: "Lenovo",
