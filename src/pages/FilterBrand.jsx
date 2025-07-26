@@ -10,8 +10,8 @@ export function FilterBrand() {
 
   return (
     <div>
-      <label htmlFor="brandSelect">Choose a Brand:</label>
-      <select
+      <label htmlFor="brandSelect">Choose a Brand: </label>
+      <select className="filter-brand"
         value={brandName}
         onChange={(event) => setBrandName(event.target.value)}
       >

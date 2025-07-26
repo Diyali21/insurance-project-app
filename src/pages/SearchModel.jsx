@@ -9,7 +9,9 @@ export function SearchModel() {
 
   return (
     <div>
-      <input type="text" value={model} onChange={(event) => setModel(event.target.value)}></input>
+      <div className="search-model-container">
+      <input className="search-model" type="text" value={model} onChange={(event) => setModel(event.target.value)} placeholder="Laptop Model"></input>
+      </div>
       <section className="laptop-list-container">
         {searchLaptop.map((laptop, index) => (
           <Laptop key={index} laptop={laptop} />

@@ -23,8 +23,6 @@ export default function App() {
             </ul>
           </nav>
         </header>
-        {/* <SearchModel/> */}
-        <FilterBrand/>
         <Routes>
         <Route path="" element={<Navigate to="/dashboard" replace />} />
         <Route path="home" element={<Navigate to="/dashboard" replace />} />

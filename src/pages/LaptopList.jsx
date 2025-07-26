@@ -1,11 +1,15 @@
 import { Laptop } from "../assets/components/Laptop";
 import { laptops } from "../assets/components/laptops";
+import { FilterBrand } from "./FilterBrand";
+import { SearchModel } from "./SearchModel";
 
 export function LaptopList() {
 
   return (
     <div>
       <div>
+        <SearchModel/>
+        <FilterBrand/>
       </div>
       <section className="laptop-list-container">
         {laptops.map((laptop, index) => (

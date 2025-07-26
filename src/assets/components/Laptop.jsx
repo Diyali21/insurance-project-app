@@ -48,7 +48,9 @@ export function Laptop({ laptop }) {
           <h4>Purchase Date: {laptop.purchase_date}</h4>
           <h4>Current Value: R{laptop.current_value}</h4>
           </div>
-           <button onClick={() => setShow((!show))}> {show ? "View Less": "View More"}</button>
+          <div className="view-btn-container">
+           <button className="view-btn" onClick={() => setShow((!show))}> {show ? "View Less": "View More"}</button>
+           </div>
         </div>
       </div>
     </div>
