@@ -9,9 +9,9 @@ export function LaptopList() {
     <div>
       <div>
         <SearchModel/>
-        <FilterBrand/>
       </div>
       <section className="laptop-list-container">
+        <FilterBrand/>
         {laptops.map((laptop, index) => (
           <Laptop key={index} laptop={laptop} />
         ))}

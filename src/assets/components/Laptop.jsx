@@ -41,9 +41,9 @@ export function Laptop({ laptop }) {
             <h2 className="laptop-model">{laptop.model}</h2>
             <p className="laptop-condition" style={conditionStyling(laptop.condition)}>{laptop.condition}</p>
           </div>
-          <div style={detailsStyles}>
           <h4>Type: {laptop.type}</h4>
           <h4>Processor: {laptop.processor}</h4>
+          <div style={detailsStyles}>
           <h4>Serial Number: {laptop.sNo}</h4>
           <h4>Purchase Date: {laptop.purchase_date}</h4>
           <h4>Current Value: R{laptop.current_value}</h4>
