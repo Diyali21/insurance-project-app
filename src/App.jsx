@@ -1,5 +1,5 @@
 import { LaptopList } from "./pages/LaptopList";
-import "./styles.css";
+import "./dashboard.css";
 import { Routes, Route, Link, Navigate, useParams } from "react-router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHouse, faLaptop } from "@fortawesome/free-solid-svg-icons";
