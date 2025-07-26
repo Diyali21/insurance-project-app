@@ -26,5 +26,19 @@ export const INITIAL_LAPTOPS = [
       fullName: "Chuck Bartowski",
       email: "chuck@gmail.com",
       contactNo: "0745234568",
+    },
+    {
+      brandImage: "https://thedesignest.net/wp-content/uploads/2020/07/Monochromo-Apple-logo-1.jpg",
+      brandName: "Apple",
+      model: "Macbook",
+      condition: "New",
+      type: "Convertible",
+      processor: "Qualcomm Snapdragon X Elite",
+      sNo: "5CD3456XYZ",
+      purchase_date: "2020-11-02",
+      current_value: 10000,
+      fullName: "Chuck Bartowski",
+      email: "chuck@gmail.com",
+      contactNo: "0745234568",
     }
   ];

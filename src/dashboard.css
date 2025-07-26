@@ -150,13 +150,15 @@ a:hover {
   display: inline-block;
   padding: 5px 15px;
   border-radius: 20px;
+  border-color: white;
   font-size: 20px;
   font-weight: 500;
   margin-bottom: 15px;
   max-width: 100%;
-  background-color: #add8e6;
+  background: linear-gradient(to right, #e6f5ff, #b0e0e6);
 }
 
 .quote-btn:hover {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+  border-color: black;
 }

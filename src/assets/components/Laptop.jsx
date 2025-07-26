@@ -18,7 +18,7 @@ export function Laptop({ laptop }) {
             color: "#333333",
           };
 
-          case "Refurb":
+          case "Refurbished":
           return{
             background: "linear-gradient(to right, #fdcb82, #f7f7b6)",
             color: "#5c3d00",

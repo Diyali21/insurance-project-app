@@ -5,7 +5,7 @@ import { INITIAL_LAPTOPS  } from "../assets/components/INITIAL_LAPTOPS";
 export function SearchModel() {
   const [model, setModel] = useState("");
 
-  const searchLaptop = INITIAL_LAPTOPS .filter((laptop) => laptop.model.toLowerCase().includes(model.toLowerCase()));
+  const searchLaptop = INITIAL_LAPTOPS.filter((laptop) => laptop.model.toLowerCase().includes(model.toLowerCase()));
 
   return (
     <div>
