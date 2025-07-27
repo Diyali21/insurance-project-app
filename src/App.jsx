@@ -1,5 +1,10 @@
 import { LaptopList } from "./pages/LaptopList";
-import "./dashboard.css";
+import "./style/dashboard.css";
+import "./style/navBar.css";
+import "./style/new-laptop.css";
+import "./style/quotes.css";
+import "./style/confirm.css";
+import "./style/not-found.css";
 import "./styles.css";
 import { Routes, Route, Link, Navigate, useParams, useNavigate } from "react-router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -9,6 +14,8 @@ import { useState } from "react";
 import { INITIAL_LAPTOPS } from "./assets/components/INITIAL_LAPTOPS";
 import { Quotes } from "./pages/Quotes";
 import {Box, Typography, Grid, TableContainer, TableCell, Paper, TableBody, Table, TableRow, List, ListItem, ListItemText} from "@mui/material";
+import { NotFound } from "./NotFound";
+import logo from './images/GuardIT_logo.png';
 
 export default function App() {
 
@@ -23,12 +30,17 @@ export default function App() {
         <header>
           <nav>
             <ul className="nav-link-container">
+              <li>
+                <img className="logo" src={logo} alt="" />
+                </li>
+                <div className="nav-link-description">
               <li className="spacing-words">
-                <Link className="nav-link" to="/dashboard"><FontAwesomeIcon icon={faHouse} size="0.5x" /></Link>
+                <Link className="nav-link" to="/dashboard"><FontAwesomeIcon icon={faHouse} size="0.5x" /> Dashboard</Link>
               </li>
               <li className="spacing-words">
-                <Link className="nav-link" to="/laptop/new"><FontAwesomeIcon icon={faLaptop} size="0.5x" /></Link>
+                <Link className="nav-link" to="/laptop/new"><FontAwesomeIcon icon={faLaptop} size="0.5x" /> Register Laptop</Link>
               </li>
+              </div>
             </ul>
           </nav>
         </header>
@@ -39,6 +51,7 @@ export default function App() {
         <Route path="/laptop/new" element={<NewLaptop laptop_details={laptop_details} setLaptops={setLaptops}/>} />
         <Route path="quotes/:id" element={<Quotes laptop_details={laptop_details} selectedQuote={selectedQuote}/>}/>
         <Route path="/confirm" element= {<Confirm selectedQuote={quoteDetails}/>}/>
+         <Route path="*" element={<NotFound />} />
 
         {/* <Route path="/laptop/new" element={}></Route> */}
         </Routes>

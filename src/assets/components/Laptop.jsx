@@ -2,37 +2,44 @@ import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit } from "@fortawesome/free-solid-svg-icons";
 import {Box, Typography, Grid, TableContainer, TableCell, Paper, TableBody, Table, TableRow, List, ListItem, ListItemText} from "@mui/material";
+import { useNavigate, useParams } from "react-router";
 
 export function Laptop({ laptop }) {
 
   const conditionStyling = (condition) =>{
-    switch (condition){
-      case "New":
+    if (condition == "New"){
         return{
           background: "linear-gradient(to right, #a8ff78, #78ffd6)",
           color: "#2C3E50",
-        };
-
-        case "Used":
+        };}
+        else if (condition == 'Used'){
           return{
             background: "linear-gradient(to right, #d9afd9, #97d9e1)",
             color: "#333333",
           };
-
-          case "Refurbished":
+        } else if (condition == "Refurbished"){
           return{
             background: "linear-gradient(to right, #fdcb82, #f7f7b6)",
             color: "#5c3d00",
           };
+        }
     }
 
-  }
+
 
   const [show, setShow] = useState(true);
 
   const detailsStyles={
     display: show ? "block" : "none"
   };
+
+  // const {id} = useParams();
+
+  // const navigate = useNavigate();
+  // const quoteClick = () => {
+  //   console.log(id);
+  //   // navigate(`/quotes/${id}`);
+  // }
 
   return (
     <Box className="laptop-list-container">

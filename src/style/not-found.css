@@ -1,0 +1,15 @@
+.not-found {
+  height: 800px;
+  width: 800px;
+}
+
+.not-found-container {
+  display: grid;
+  justify-content: center;
+}
+
+/* navbar */
+.logo {
+  margin-top: 20px;
+  height: 120px;
+}

@@ -1,0 +1,23 @@
+.laptop-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  margin-top: 70px;
+  gap: 250px;
+  margin-left: 250px;
+}
+
+.content {
+  margin-top: 20px;
+}
+
+.headings {
+  margin-top: 80px;
+  display: grid;
+  justify-content: center;
+  text-align: center;
+}
+
+.headings-space {
+  margin-bottom: 2rem;
+}

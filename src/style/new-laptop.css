@@ -1,0 +1,18 @@
+.new-laptop-container {
+  display: grid;
+  justify-content: center;
+}
+
+.new-laptop-form {
+  width: 800px;
+}
+
+.document-layout {
+  display: grid;
+  margin-left: 12px;
+  gap: 10px;
+}
+
+.submit-container {
+  margin-top: 30px;
+}

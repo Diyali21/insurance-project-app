@@ -1,0 +1,28 @@
+.nav-link-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  list-style: none;
+  justify-content: center;
+  margin-left: 150px;
+  padding-right: 150px;
+}
+
+.nav-link-description {
+  display: flex;
+  list-style: none;
+  justify-content: space-around;
+  gap: 70px;
+}
+
+.nav-link-container a {
+  text-decoration: none;
+  color: black;
+  font-size: 25px;
+}
+.spacing-words {
+  margin-top: 75px;
+}
+
+a:hover {
+  color: #4169e1;
+}
