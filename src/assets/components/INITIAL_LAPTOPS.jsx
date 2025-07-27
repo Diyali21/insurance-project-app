@@ -31,7 +31,7 @@ export const INITIAL_LAPTOPS = [
       brandImage: "https://thedesignest.net/wp-content/uploads/2020/07/Monochromo-Apple-logo-1.jpg",
       brandName: "Apple",
       model: "Macbook",
-      condition: "New",
+      condition: "Refurbished",
       type: "Convertible",
       processor: "Qualcomm Snapdragon X Elite",
       sNo: "5CD3456XYZ",
