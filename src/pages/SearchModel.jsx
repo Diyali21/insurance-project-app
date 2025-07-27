@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Laptop } from "../assets/components/Laptop";
-import { INITIAL_LAPTOPS  } from "../assets/components/INITIAL_LAPTOPS";
+import { Laptop } from "../components/Laptop";
+import { INITIAL_LAPTOPS  } from "../components/INITIAL_LAPTOPS";
 
 export function SearchModel() {
   const [model, setModel] = useState("");

@@ -1,4 +1,4 @@
-import { Laptop } from "../assets/components/Laptop";
+import { Laptop } from "../components/Laptop";
 import { FilterBrand } from "./FilterBrand";
 import { SearchModel } from "./SearchModel";
 

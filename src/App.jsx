@@ -11,11 +11,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHouse, faLaptop } from "@fortawesome/free-solid-svg-icons";
 import { NewLaptop } from "./pages/NewLaptop";
 import { useState } from "react";
-import { INITIAL_LAPTOPS } from "./assets/components/INITIAL_LAPTOPS";
+import { INITIAL_LAPTOPS } from "./components/INITIAL_LAPTOPS";
 import { Quotes } from "./pages/Quotes";
 import {Box, Typography, Grid, TableContainer, TableCell, Paper, TableBody, Table, TableRow, List, ListItem, ListItemText} from "@mui/material";
 import { NotFound } from "./pages/NotFound";
-import logo from './GuardIT_logo.png';
+import logo from './images/GuardIT_logo.png';
 
 export default function App() {
 
