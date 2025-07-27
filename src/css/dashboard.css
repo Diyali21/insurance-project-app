@@ -133,8 +133,10 @@
 }
 
 .search-filter {
-  display: grid;
-  grid-template-columns: 4fr 1fr;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 100px;
 }
 
 .search-model-container {
