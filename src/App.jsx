@@ -1,21 +1,21 @@
 import { LaptopList } from "./pages/LaptopList";
-import "./style/dashboard.css";
-import "./style/navBar.css";
-import "./style/new-laptop.css";
-import "./style/quotes.css";
-import "./style/confirm.css";
-import "./style/not-found.css";
+import "./css/dashboard.css";
+import "./css/navBar.css";
+import "./css/new-laptop.css";
+import "./css/quotes.css";
+import "./css/confirm.css";
+import "./css/not-found.css";
 import "./styles.css";
 import { Routes, Route, Link, Navigate, useParams, useNavigate } from "react-router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHouse, faLaptop } from "@fortawesome/free-solid-svg-icons";
-import { NewLaptop } from "./NewLaptop";
+import { NewLaptop } from "./pages/NewLaptop";
 import { useState } from "react";
 import { INITIAL_LAPTOPS } from "./assets/components/INITIAL_LAPTOPS";
 import { Quotes } from "./pages/Quotes";
 import {Box, Typography, Grid, TableContainer, TableCell, Paper, TableBody, Table, TableRow, List, ListItem, ListItemText} from "@mui/material";
-import { NotFound } from "./NotFound";
-import logo from './images/GuardIT_logo.png';
+import { NotFound } from "./pages/NotFound";
+import logo from './GuardIT_logo.png';
 
 export default function App() {
 

@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit } from "@fortawesome/free-solid-svg-icons";
-import {Box, Typography, Grid, TableContainer, TableCell, Paper, TableBody, Table, TableRow, List, ListItem, ListItemText} from "@mui/material";
-import { useNavigate, useParams } from "react-router";
+import {Box, Typography} from "@mui/material";
 
 export function Laptop({ laptop }) {
 

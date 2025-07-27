@@ -1,4 +1,4 @@
-import {BRAND_LOGOS} from "./assets/components/BRAND_LOGOS";
+import { BRAND_LOGOS } from '../assets/components/BRAND_LOGOS';
 import {useFormik } from 'formik';
 import * as yup from 'yup';
 import Button from '@mui/material/Button';

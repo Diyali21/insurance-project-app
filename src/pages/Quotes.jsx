@@ -1,6 +1,6 @@
 import {useParams, useNavigate } from "react-router";
 import { CalculatePrice } from "./CalculatePrice";
-import {Box, Typography, Grid, TableContainer, TableCell, Paper, TableBody, Table, TableRow, List, ListItem, ListItemText} from "@mui/material";
+import {Box} from "@mui/material";
 
 export function Quotes({laptop_details, selectedQuote}){
 
