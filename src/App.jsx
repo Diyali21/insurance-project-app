@@ -6,14 +6,14 @@ import "./css/quotes.css";
 import "./css/confirm.css";
 import "./css/not-found.css";
 import "./styles.css";
-import { Routes, Route, Link, Navigate, useParams, useNavigate } from "react-router";
+import { Routes, Route, Link, Navigate } from "react-router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHouse, faLaptop } from "@fortawesome/free-solid-svg-icons";
 import { NewLaptop } from "./pages/NewLaptop";
 import { useState } from "react";
 import { INITIAL_LAPTOPS } from "./components/INITIAL_LAPTOPS";
 import { Quotes } from "./pages/Quotes";
-import {Box, Typography, Grid, TableContainer, TableCell, Paper, TableBody, Table, TableRow, List, ListItem, ListItemText} from "@mui/material";
+import {Box, Typography, TableCell, TableBody, Table, TableRow} from "@mui/material";
 import { NotFound } from "./pages/NotFound";
 import logo from './images/GuardIT_logo.png';
 
