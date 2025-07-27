@@ -21,6 +21,7 @@ export function LaptopList({laptop_details}) {
         setModel={setModel}
         brandName={brandName}
         setBrandName={setBrandName}
+        laptop_details={laptop_details}
         />
       </div>
       <section className="laptop-list-container">

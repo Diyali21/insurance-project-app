@@ -1,6 +1,6 @@
 import { INITIAL_LAPTOPS  } from "../components/INITIAL_LAPTOPS";
 
-export function SearchModel({ model, setModel, brandName, setBrandName }) {
+export function SearchModel({ model, setModel, brandName, setBrandName, laptop_details }) {
 
   return (
     <div className="search-filter-container">
@@ -18,7 +18,7 @@ export function SearchModel({ model, setModel, brandName, setBrandName }) {
       >
         <option value="">Select brand</option>
 
-        {INITIAL_LAPTOPS.map((laptops) => (
+        {laptop_details.map((laptops) => (
           <option value={laptops.brandName}>{laptops.brandName}</option>
         ))};
       </select>
