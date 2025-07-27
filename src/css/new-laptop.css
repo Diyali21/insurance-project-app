@@ -16,3 +16,15 @@
 .submit-container {
   margin-top: 30px;
 }
+
+@media (max-width: 815px) {
+  .new-laptop-form {
+    width: 500px;
+  }
+}
+
+@media (max-width: 525px) {
+  .new-laptop-form {
+    width: 200px;
+  }
+}

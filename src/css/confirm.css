@@ -21,3 +21,9 @@
 .headings-space {
   margin-bottom: 2rem;
 }
+
+@media (max-width: 510px) {
+  .laptop-details {
+    gap: 50px;
+  }
+}
