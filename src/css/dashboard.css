@@ -66,9 +66,7 @@
 
 .search-model:hover,
 .search-model:focus {
-  /* background-color: #e0f7fa; */
   box-shadow: 0 0 6px #007bff;
-  /* border-color: #007bff; */
 }
 
 .search-model::placeholder {
@@ -80,13 +78,10 @@
   opacity: 0;
 }
 
-.search-model-container {
+/* .search-model-container {
   display: grid;
   margin-top: 70px;
   justify-content: center;
-}
-/*
-.filter-brand-container {
 } */
 
 .filter-brand {
@@ -135,4 +130,18 @@
 .quote-btn:hover {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
   border-color: black;
+}
+
+.search-filter {
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+}
+
+.search-model-container {
+  display: flex;
+  justify-content: center;
+}
+
+.search-filter-container {
+  margin-left: 300px;
 }
