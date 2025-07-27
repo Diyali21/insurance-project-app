@@ -103,3 +103,29 @@
 .get-cover-btn:hover {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
 }
+
+/* confirm */
+
+.laptop-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  margin-top: 70px;
+  gap: 250px;
+  margin-left: 250px;
+}
+
+.content {
+  margin-top: 20px;
+}
+
+.headings {
+  margin-top: 80px;
+  display: grid;
+  justify-content: center;
+  text-align: center;
+}
+
+.headings-space {
+  margin-bottom: 2rem;
+}

@@ -1,12 +1,12 @@
 import {useParams, useNavigate } from "react-router";
 import { CalculatePrice } from "./CalculatePrice";
+import {Box, Typography, Grid, TableContainer, TableCell, Paper, TableBody, Table, TableRow, List, ListItem, ListItemText} from "@mui/material";
 
 export function Quotes({laptop_details, selectedQuote}){
 
   const {id} = useParams();
   const laptop = laptop_details[id];
   const navigate = useNavigate();
-
   const basicPrice = CalculatePrice(laptop, "Basic").totalPrice;
   const stdPrice = CalculatePrice(laptop, "Standard").totalPrice;
   const premPrice = CalculatePrice(laptop, "Premium").totalPrice;
@@ -14,54 +14,60 @@ export function Quotes({laptop_details, selectedQuote}){
   const generateQuote = (quoteType) => {
     const priceBreakdown = CalculatePrice(laptop, quoteType);
     const quoteDetails = {
-        quoteType,...priceBreakdown
+        quoteType,
+        brandName: laptop.brandName,
+        model: laptop.model,
+        type: laptop.type,
+        processor: laptop.processor,
+        condition: laptop.condition,
+        sNo: laptop.sNo,
+        purchaseDate: laptop.purchase_date,
+        currentValue: laptop.current_value,
+        ...priceBreakdown
     }
     selectedQuote(quoteDetails);
     navigate("/confirm");
   }
 return(
-    <div>
-      <div className="quotes-card-container">
-      <div className="basic-card">
-        <div className="quotes-content">
-          <h2 className="tier-emoji">🧩</h2>
+    <Box>
+      <Box className="quotes-card-container">
+      <Box className="basic-card">
+        <Box className="quotes-content">
         <h1>Basic</h1>
         <h2>R{basicPrice} pm</h2>
-        </div>
+        </Box>
       <p className="quotes-coverage">✅ Theft Protection</p>
       <p className="quotes-coverage">❌ Liquid Damage</p>
       <p className="quotes-coverage">❌ Power Surge Damage</p>
       <p className="quotes-coverage">❌ Accidental Damage</p>
       <p className="quotes-coverage">❌ Hardware Malfunction</p>
       <button className="get-cover-btn" onClick={() => generateQuote("Basic", basicPrice)}>Get Cover</button>
-      </div>
-       <div className="std-card">
-        <div className="quotes-content">
-          <h2>⚙️</h2>
+      </Box>
+       <Box className="std-card">
+        <Box className="quotes-content">
       <h1>Standard</h1>
       <h2>R{stdPrice} pm</h2>
-      </div>
+      </Box>
       <p className="quotes-coverage">✅ Theft Protection</p>
       <p className="quotes-coverage">✅ Liquid Damage</p>
       <p className="quotes-coverage">✅ Power Surge Damage</p>
       <p className="quotes-coverage">❌ Accidental Damage</p>
       <p className="quotes-coverage">❌ Hardware Malfunction</p>
       <button className="get-cover-btn" onClick={() => generateQuote("Standard", stdPrice)}>Get Cover</button>
-      </div>
-      <div className="premium-card">
-        <div className="quotes-content">
-          <h2>💎</h2>
+      </Box>
+      <Box className="premium-card">
+        <Box className="quotes-content">
       <h1>Premium</h1>
       <h2>R{premPrice} pm</h2>
-      </div>
+      </Box>
       <p className="quotes-coverage">✅ Theft Protection</p>
       <p className="quotes-coverage">✅ Liquid Damage</p>
       <p className="quotes-coverage">✅ Power Surge Damage</p>
       <p className="quotes-coverage">✅ Accidental Damage</p>
       <p className="quotes-coverage">✅ Hardware Malfunction</p>
       <button className="get-cover-btn" onClick={() => generateQuote("Premium", premPrice)}>Get Cover</button>
-      </div>
-      </div>
-    </div>
+      </Box>
+      </Box>
+    </Box>
   )
 }

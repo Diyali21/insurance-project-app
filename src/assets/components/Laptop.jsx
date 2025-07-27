@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit } from "@fortawesome/free-solid-svg-icons";
+import {Box, Typography, Grid, TableContainer, TableCell, Paper, TableBody, Table, TableRow, List, ListItem, ListItemText} from "@mui/material";
 
 export function Laptop({ laptop }) {
 
@@ -34,28 +35,28 @@ export function Laptop({ laptop }) {
   };
 
   return (
-    <div className="laptop-list-container">
-      <div className="laptop-container">
-        <h1 className="update-icon"><FontAwesomeIcon icon={faEdit} size="0.5x" /></h1>
+    <Box className="laptop-list-container">
+      <Box className="laptop-container">
+        <Typography variant="h5" className="update-icon"><FontAwesomeIcon icon={faEdit} /></Typography>
         <img className="laptop-brand" src={laptop.brandImage} alt={laptop.model} />
-        <div className="laptop-content-container">
-          <div className="laptop-specs">
+        <Box className="laptop-content-container">
+          <Box className="laptop-specs">
             <h2 className="laptop-model">{laptop.model}</h2>
             <p className="laptop-condition" style={conditionStyling(laptop.condition)}>{laptop.condition}</p>
-          </div>
+          </Box>
           <h4>Type: {laptop.type}</h4>
           <h4>Processor: {laptop.processor}</h4>
-          <div style={detailsStyles}>
+          <Box style={detailsStyles}>
           <h4>Serial Number: {laptop.sNo}</h4>
           <h4>Purchase Date: {laptop.purchase_date}</h4>
           <h4>Current Value: R{laptop.current_value}</h4>
-          </div>
-          <div className="view-btn-container">
+          </Box>
+          <Box className="view-btn-container">
            <button className="view-btn" onClick={() => setShow((!show))}> {show ? "View Less": "View More"}</button>
-           </div>
+           </Box>
            <button className="quote-btn">Get A Quote ➡️</button>
-        </div>
-      </div>
-    </div>
+        </Box>
+      </Box>
+    </Box>
   );
 }
