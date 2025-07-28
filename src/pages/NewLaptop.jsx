@@ -38,7 +38,7 @@ export function NewLaptop(){
 const validationSchema = yup.object({
   fullName: yup.string().required('Full Name is required'),
   email: yup.string().email('Enter a valid email').required('Email is required'),
-  contactNo: yup.string().required('Contact Number is required'),
+  contactNo: yup.string().matches(/^[6-8][0-9]{8}$/).required('Contact Number is required'),
   brandName: yup.string().required('Brand is required'),
   model: yup.string().required('Model is required'),
   type: yup.string().required('Type is required'),
@@ -117,21 +117,22 @@ const validationSchema = yup.object({
       >
       </TextField>
 
-     <NumericFormat
-            customInput={TextField}
-            fullWidth
-            id="contactNo"
-            name="contactNo"
-            label="Contact Number"
-            format="0#########"
-            value={formik.values.contactNo}
-            onValueChange={(values) => {
-              formik.setFieldValue('contactNo', values.value);
-            }}
-            onBlur={formik.handleBlur}
-            error={formik.touched.contactNo && Boolean(formik.errors.contactNo)}
-            helperText={formik.touched.contactNo && formik.errors.contactNo}
-          />
+      <NumericFormat
+        customInput={TextField}
+        fullWidth
+        id="contactNo"
+        name="contactNo"
+        label="Contact Number"
+        format="0#########"
+        prefix="+27"
+        value={formik.values.contactNo}
+        onValueChange={(values) => {
+        formik.setFieldValue('contactNo', values.value);
+        }}
+        onBlur={formik.handleBlur}
+        error={formik.touched.contactNo && Boolean(formik.errors.contactNo)}
+        helperText={formik.touched.contactNo && formik.errors.contactNo}
+        />
         </Grid>
 
         <Divider sx={{ my: 4 }} />
