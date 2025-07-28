@@ -11,7 +11,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHouse, faLaptop } from "@fortawesome/free-solid-svg-icons";
 import { NewLaptop } from "./pages/NewLaptop";
 import { useState } from "react";
-import { INITIAL_LAPTOPS } from "./components/INITIAL_LAPTOPS";
 import { Quotes } from "./pages/Quotes";
 import { NotFound } from "./pages/NotFound";
 import logo from './images/GuardIT_logo.png';
@@ -19,7 +18,6 @@ import {Confirm} from "./pages/Confirm";
 
 export default function App() {
 
-  const [laptop_details, setLaptops] = useState(INITIAL_LAPTOPS );
   const [quoteDetails, setQuote] = useState();
   const selectedQuote = (quoteDetails) => {
     setQuote(quoteDetails);
