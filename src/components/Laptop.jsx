@@ -37,7 +37,7 @@ export function Laptop({ laptop, deleteBtn }) {
     <Box className="laptop-list-container">
       <Box className="laptop-container">
         {deleteBtn}
-        <Typography variant="h5" className="update-icon"><FontAwesomeIcon icon={faEdit} /></Typography>
+        <Link to={"/laptop/" + laptop.id + "/edit"}><Typography variant="h5" className="update-icon"><FontAwesomeIcon icon={faEdit} /></Typography></Link>
         <img className="laptop-brand" src={laptop.brandImage} alt={laptop.model} />
         <Box className="laptop-content-container">
           <Box className="laptop-specs">

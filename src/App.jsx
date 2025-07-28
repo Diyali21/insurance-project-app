@@ -6,7 +6,7 @@ import "./css/quotes.css";
 import "./css/confirm.css";
 import "./css/not-found.css";
 import "./styles.css";
-import { Routes, Route, Link, Navigate } from "react-router";
+import { Routes, Route, Link, Navigate, useParams, useNavigate } from "react-router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHouse, faLaptop } from "@fortawesome/free-solid-svg-icons";
 import { NewLaptop } from "./pages/NewLaptop";
@@ -15,6 +15,9 @@ import { Quotes } from "./pages/Quotes";
 import { NotFound } from "./pages/NotFound";
 import logo from './images/GuardIT_logo.png';
 import {Confirm} from "./pages/Confirm";
+import { EditLaptop } from "./pages/EditLaptop";
+
+
 
 export default function App() {
 
@@ -50,8 +53,7 @@ export default function App() {
         <Route path="quotes/:id" element={<Quotes selectedQuote={selectedQuote}/>}/>
         <Route path="/confirm" element= {<Confirm selectedQuote={quoteDetails}/>}/>
          <Route path="*" element={<NotFound />} />
-
-        {/* <Route path="/laptop/new" element={}></Route> */}
+         <Route path="/laptop/:id/edit" element={<EditLaptop/>}/>
         </Routes>
        </div>
   );
