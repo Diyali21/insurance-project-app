@@ -7,11 +7,7 @@ export function LaptopList({laptop_details}) {
   const [model, setModel] = useState("");
   const [brandName, setBrandName] = useState("");
 
-  const searchFilter = laptop_details .filter((laptop) => {
-    const filterBrand = laptop.brandName.includes(brandName);
-    const searchModel = laptop.model.toLowerCase().includes(model.toLowerCase());
-    return filterBrand && searchModel;
-  });
+  const searchFilter = laptop_details .filter((laptop) => laptop.brandName.includes(brandName) && laptop.model.toLowerCase().includes(model.toLowerCase()));
 
   return (
     <div>

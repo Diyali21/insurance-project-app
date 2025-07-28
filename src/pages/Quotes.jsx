@@ -1,5 +1,5 @@
 import {useParams, useNavigate } from "react-router";
-import { CalculatePrice } from "./CalculatePrice";
+import { CalculatePrice } from "../components/CalculatePrice";
 import {Box} from "@mui/material";
 
 export function Quotes({laptop_details, selectedQuote}){
