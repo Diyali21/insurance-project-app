@@ -46,7 +46,6 @@ export function EditLaptop(){
     purchase_date: yup.date().required('Purchase Date is required'),
   });
 
-
   const formik = useFormik({
 
       initialValues: {
@@ -64,7 +63,6 @@ export function EditLaptop(){
       },
       validationSchema: validationSchema,
       onSubmit: async (values) => {
-
             const response = await fetch (`https://68871b7e071f195ca97f45fa.mockapi.io/laptops/${id}`,
             {
               method:"PUT",
@@ -80,10 +78,10 @@ export function EditLaptop(){
     });
 
      async function getLaptops(id) {
-    const response = await fetch (`https://68871b7e071f195ca97f45fa.mockapi.io/laptops/${id}`);
-    const laptops = await response.json();
-    setLaptop(laptops);
-    formik.setValues(laptops);
+        const response = await fetch (`https://68871b7e071f195ca97f45fa.mockapi.io/laptops/${id}`);
+        const laptops = await response.json();
+        setLaptop(laptops);
+        formik.setValues(laptops);
   }
 
   useEffect(() => {

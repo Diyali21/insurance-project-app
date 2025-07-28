@@ -33,7 +33,7 @@ export function LaptopList() {
     const response = await fetch(`https://68871b7e071f195ca97f45fa.mockapi.io/laptops/${id}`, {method: "DELETE"});
     const laptop = await response.json();
     console.log("Deleted", laptop);
-    getLaptops();
+    getLaptops(id);
   }
   return (
     <div>

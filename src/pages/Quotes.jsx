@@ -10,16 +10,23 @@ export function Quotes({selectedQuote}){
 
   const [laptop, setLaptop] = useState(null);
 
+  const [isLoading, setIsLoading] = useState(true);
+
   async function getQuoteById(id) {
+    setIsLoading(true);
     const response = await fetch(`https://68871b7e071f195ca97f45fa.mockapi.io/laptops/${id}`);
     const laptop = await response.json();
-    console.log(laptop);
+    setIsLoading(false);
     setLaptop(laptop);
   }
 
   useEffect(() => {
     getQuoteById(id);
   }, [id]);
+
+  if (isLoading) {
+    return <h1>Loading...</h1>;
+  }
 
     const basicPrice = laptop ? CalculatePrice(laptop, "Basic").totalPrice : 0;
   const stdPrice = laptop ? CalculatePrice(laptop, "Standard").totalPrice : 0;
