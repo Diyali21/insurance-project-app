@@ -33,14 +33,6 @@ export function Laptop({ laptop, deleteBtn }) {
     display: show ? "block" : "none"
   };
 
-  // const {id} = useParams();
-
-  // const navigate = useNavigate();
-  // const quoteClick = () => {
-  //   console.log(id);
-  //   // navigate(`/quotes/${id}`);
-  // }
-
   return (
     <Box className="laptop-list-container">
       <Box className="laptop-container">

@@ -9,11 +9,13 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 import { useNavigate } from "react-router";
+import { useState } from 'react';
 
-export function NewLaptop({laptop_details, setLaptops}){
+export function NewLaptop(){
 
   const navigate = useNavigate();
 
+  const [laptop_details, setLaptops] = useState([]);
   const laptopTypes = ['Ultrabook', 'Gaming', 'Workstation', 'Convertible', 'Business', 'Chromebook', 'MacBook'];
   const conditions = ['New', 'Used', 'Refurbished'];
   const laptopBrands = ['HP', 'Lenovo', 'Dell', 'Asus', 'Apple'];
