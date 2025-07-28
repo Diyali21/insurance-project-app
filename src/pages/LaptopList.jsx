@@ -7,18 +7,26 @@ export function LaptopList() {
   const [model, setModel] = useState("");
   const [brandName, setBrandName] = useState("");
   const [laptop, setLaptop] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
 
   const searchFilter = laptop.filter((laptop) => laptop.brandName.includes(brandName) && laptop.model.toLowerCase().includes(model.toLowerCase()));
 
   async function getLaptops() {
+     setIsLoading(true);
     const response = await fetch ("https://68871b7e071f195ca97f45fa.mockapi.io/laptops/");
     const laptops = await response.json();
+    setIsLoading(false);
     setLaptop(laptops);
   }
 
   useEffect(() => {
     getLaptops();
   }, []);
+
+   if (isLoading) {
+    return <h1>Loading...</h1>;
+  }
 
   return (
     <div>

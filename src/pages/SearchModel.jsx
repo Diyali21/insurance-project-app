@@ -16,8 +16,8 @@ export function SearchModel({ model, setModel, brandName, setBrandName, laptop_d
       >
         <option value="">Select brand</option>
 
-        {laptop_details.map((laptops) => (
-          <option value={laptops.brandName}>{laptops.brandName}</option>
+        {laptop_details.map((laptops, index) => (
+          <option key={index} value={laptops.brandName}>{laptops.brandName}</option>
         ))};
       </select>
 
