@@ -66,9 +66,7 @@ export function Laptop({ laptop, deleteBtn }) {
             <h4>Current Value: R{laptop.current_value}</h4>
           </Box>
           <Box className="view-btn-container">
-            <button className="view-btn" onClick={() => setShow(!show)}>
-              {" "}
-              {show ? "View Less" : "View More"}
+            <button className="view-btn" onClick={() => setShow(!show)}>{" "} {show ? "View Less" : "View More"}
             </button>
           </Box>
           <Link to={"/quotes/" + laptop.id}>

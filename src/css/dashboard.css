@@ -93,6 +93,7 @@
 }
 
 .view-btn {
+  all:unset;
   font-size: 20px;
   margin-top: 0;
   display: inline-block;
