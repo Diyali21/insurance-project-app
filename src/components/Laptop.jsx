@@ -2,8 +2,9 @@ import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit } from "@fortawesome/free-solid-svg-icons";
 import {Box, Typography} from "@mui/material";
+import { Link } from "react-router";
 
-export function Laptop({ laptop }) {
+export function Laptop({ laptop, deleteBtn }) {
 
   const conditionStyling = (condition) =>{
     if (condition == "New"){
@@ -43,6 +44,7 @@ export function Laptop({ laptop }) {
   return (
     <Box className="laptop-list-container">
       <Box className="laptop-container">
+        {deleteBtn}
         <Typography variant="h5" className="update-icon"><FontAwesomeIcon icon={faEdit} /></Typography>
         <img className="laptop-brand" src={laptop.brandImage} alt={laptop.model} />
         <Box className="laptop-content-container">
@@ -60,7 +62,7 @@ export function Laptop({ laptop }) {
           <Box className="view-btn-container">
            <button className="view-btn" onClick={() => setShow((!show))}> {show ? "View Less": "View More"}</button>
            </Box>
-           <button className="quote-btn">Get A Quote ➡️</button>
+           <Link to={"/quotes/" + laptop.id}><button className="quote-btn">Get A Quote ➡️</button></Link>
         </Box>
       </Box>
     </Box>

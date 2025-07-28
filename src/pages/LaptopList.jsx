@@ -28,6 +28,13 @@ export function LaptopList() {
     return <h1>Loading...</h1>;
   }
 
+  const deleteLaptop = async (id) =>{
+    console.log("Deleting...", id);
+    const response = await fetch(`https://68871b7e071f195ca97f45fa.mockapi.io/laptops/${id}`, {method: "DELETE"});
+    const laptop = await response.json();
+    console.log("Deleted", laptop);
+    getLaptops();
+  }
   return (
     <div>
       <div>
@@ -41,7 +48,7 @@ export function LaptopList() {
       </div>
       <section className="laptop-list-container">
         {searchFilter.map((laptop, index) => (
-          <Laptop key={index} laptop={laptop} />
+          <Laptop key={index} laptop={laptop} deleteBtn={<button onClick={() => deleteLaptop(laptop.id)}>Delete</button>}/>
         ))}
       </section>
     </div>
