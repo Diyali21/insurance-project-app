@@ -1,5 +1,3 @@
-import { INITIAL_LAPTOPS  } from "../components/INITIAL_LAPTOPS";
-
 export function SearchModel({ model, setModel, brandName, setBrandName, laptop_details }) {
 
   return (
