@@ -7,7 +7,7 @@ export function LaptopList({laptop_details}) {
   const [model, setModel] = useState("");
   const [brandName, setBrandName] = useState("");
 
-  const searchFilter = laptop_details .filter((laptop) => laptop.brandName.includes(brandName) && laptop.model.toLowerCase().includes(model.toLowerCase()));
+  const searchFilter = laptop_details.filter((laptop) => laptop.brandName.includes(brandName) && laptop.model.toLowerCase().includes(model.toLowerCase()));
 
   return (
     <div>
@@ -21,7 +21,7 @@ export function LaptopList({laptop_details}) {
         />
       </div>
       <section className="laptop-list-container">
-        {searchFilter .map((laptop, index) => (
+        {searchFilter.map((laptop, index) => (
           <Laptop key={index} laptop={laptop} />
         ))}
       </section>
