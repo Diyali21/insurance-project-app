@@ -48,8 +48,8 @@ export default function App() {
         <Route path="" element={<Navigate to="/dashboard" replace />} />
         <Route path="home" element={<Navigate to="/dashboard" replace />} />
         <Route path="/dashboard" element={<LaptopList/>} />
-        <Route path="/laptop/new" element={<NewLaptop laptop_details={laptop_details} setLaptops={setLaptops}/>} />
-        <Route path="quotes/:id" element={<Quotes laptop_details={laptop_details} selectedQuote={selectedQuote}/>}/>
+        <Route path="/laptop/new" element={<NewLaptop/>} />
+        <Route path="quotes/:id" element={<Quotes selectedQuote={selectedQuote}/>}/>
         <Route path="/confirm" element= {<Confirm selectedQuote={quoteDetails}/>}/>
          <Route path="*" element={<NotFound />} />
 

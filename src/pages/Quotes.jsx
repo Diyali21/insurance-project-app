@@ -1,15 +1,30 @@
 import {useParams, useNavigate } from "react-router";
 import { CalculatePrice } from "../components/CalculatePrice";
 import {Box} from "@mui/material";
+import { useEffect, useState } from "react";
 
-export function Quotes({laptop_details, selectedQuote}){
+export function Quotes({selectedQuote}){
 
   const {id} = useParams();
-  const laptop = laptop_details[id];
   const navigate = useNavigate();
-  const basicPrice = CalculatePrice(laptop, "Basic").totalPrice;
-  const stdPrice = CalculatePrice(laptop, "Standard").totalPrice;
-  const premPrice = CalculatePrice(laptop, "Premium").totalPrice;
+
+  const [laptop, setLaptop] = useState(null);
+
+  async function getQuoteById(id) {
+    const response = await fetch(`https://68871b7e071f195ca97f45fa.mockapi.io/laptops/${id}`);
+    const laptop = await response.json();
+    console.log(laptop);
+    setLaptop(laptop);
+  }
+
+  useEffect(() => {
+    getQuoteById(id);
+  }, [id]);
+
+    const basicPrice = laptop ? CalculatePrice(laptop, "Basic").totalPrice : 0;
+  const stdPrice = laptop ? CalculatePrice(laptop, "Standard").totalPrice : 0;
+  const premPrice = laptop ? CalculatePrice(laptop, "Premium").totalPrice : 0;
+  console.log(id);
 
   const generateQuote = (quoteType) => {
     const priceBreakdown = CalculatePrice(laptop, quoteType);
