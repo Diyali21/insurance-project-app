@@ -110,8 +110,9 @@
 }
 
 .update-icon {
-  display: grid;
+  display: flex;
   justify-content: right;
+
 }
 
 .quote-btn {
@@ -146,4 +147,14 @@
 
 .search-filter-container {
   margin-left: 300px;
+}
+
+.delete-icon{
+    display: flex;
+    justify-content: left;
+}
+
+.update-delete{
+  display: flex;
+  gap: 275px;
 }

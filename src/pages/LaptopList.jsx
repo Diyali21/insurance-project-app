@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import { Laptop } from "../components/Laptop";
 import { SearchModel } from "./SearchModel";
+import DeleteIcon from "@mui/icons-material/Delete"
+import IconButton from "@mui/material/IconButton";
+import { Box } from "@mui/material";
 
 export function LaptopList() {
 
@@ -46,9 +49,12 @@ export function LaptopList() {
         laptop_details={laptop}
         />
       </div>
-      <section className="laptop-list-container">
+      <section className="laptop-list-container" >
         {searchFilter.map((laptop, index) => (
-          <Laptop key={index} laptop={laptop} deleteBtn={<button onClick={() => deleteLaptop(laptop.id)}>Delete</button>}/>
+          <Laptop key={index} laptop={laptop}
+          deleteBtn={
+            <IconButton aria-label="delete" onClick={() => deleteLaptop(laptop.id)}><DeleteIcon/></IconButton>
+            }/>
         ))}
       </section>
     </div>
