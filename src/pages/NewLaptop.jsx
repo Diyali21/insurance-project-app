@@ -63,13 +63,22 @@ const validationSchema = yup.object({
       current_value: '',
     },
     validationSchema: validationSchema,
-    onSubmit: (values) => {
+    onSubmit: async (values) => {
 
       const newLaptop = {...values, brandImage: BRAND_LOGOS[values.brandName]}
+      const response = await fetch ("https://68871b7e071f195ca97f45fa.mockapi.io/laptops",
+      {
+        method:"POST",
+        body: JSON.stringify(newLaptop),
+        headers:{
+          "Content-type": "application/json",
+        },
+      }
+    );
       console.log('New Laptop: ', newLaptop);
       setLaptops([...laptop_details, newLaptop]);
-      navigate('/dashboard', {replace: true});
-      alert(`Form submitted for laptop: ${values.brandName}, ${values.model}`)
+      alert(`Form submitted for laptop: ${values.brandName}, ${values.model}`);
+      navigate('/dashboard');
     },
   });
 
