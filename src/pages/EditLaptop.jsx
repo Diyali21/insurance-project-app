@@ -1,18 +1,51 @@
 import { useFormik } from "formik";
-import { Divider, Grid } from "@mui/material";
+import { Divider, Grid, MenuItem } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import TextField from '@mui/material/TextField';
 import { NumericFormat } from "react-number-format";
 import Button from '@mui/material/Button';
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
+import * as yup from 'yup';
 
 export function EditLaptop(){
 
   const {id} = useParams();
   const [laptop, setLaptop] = useState({});
 
+  const laptopTypes = ['Ultrabook', 'Gaming', 'Workstation', 'Convertible', 'Business', 'Chromebook', 'MacBook'];
+  const conditions = ['New', 'Used', 'Refurbished'];
+    const processors = [
+  'Intel Core i3',
+  'Intel Core i5',
+  'Intel Core i7',
+  'Intel Core i9',
+  'Intel Core Ultra 7',
+  'AMD Ryzen 3',
+  'AMD Ryzen 5',
+  'AMD Ryzen 7',
+  'Apple M2',
+  'Apple M3',
+  'Apple M4',
+  'Qualcomm Snapdragon X Elite',
+];
+
   const navigate = useNavigate();
+
+  const validationSchema = yup.object({
+    fullName: yup.string().required('Full Name is required'),
+    email: yup.string().email('Enter a valid email').required('Email is required'),
+    contactNo: yup.string().required('Contact Number is required'),
+    brandName: yup.string().required('Brand is required'),
+    model: yup.string().required('Model is required'),
+    type: yup.string().required('Type is required'),
+    condition: yup.string().required('Condition is required'),
+    processor: yup.string().required('Processor is required'),
+    sNo: yup.string().required('Serial Number is required'),
+    current_value: yup.number().required('Current Value is required'),
+    purchase_date: yup.date().required('Purchase Date is required'),
+  });
+
 
   const formik = useFormik({
 
@@ -29,7 +62,7 @@ export function EditLaptop(){
         purchase_date: '',
         current_value: '',
       },
-      enableReinitialize: true,
+      validationSchema: validationSchema,
       onSubmit: async (values) => {
 
             const response = await fetch (`https://68871b7e071f195ca97f45fa.mockapi.io/laptops/${id}`,
@@ -121,6 +154,7 @@ export function EditLaptop(){
         onBlur={formik.handleBlur}
         error={formik.touched.brandName && Boolean(formik.errors.brandName)}
         helperText={formik.touched.brandName && formik.errors.brandName}
+        inputProps={{readOnly: true}}
       >
       </TextField>
 
@@ -138,42 +172,60 @@ export function EditLaptop(){
       </TextField>
 
       <TextField
+      select
         fullWidth
         id="type"
         name="type"
         label="Type"
-        value={formik.values.type}
+        value={formik.values.type ?? ''}
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
         error={formik.touched.type && Boolean(formik.errors.type)}
         helperText={formik.touched.type && formik.errors.type}
       >
+        {laptopTypes.map((option) => (
+          <MenuItem key={option} value={option}>
+            {option}
+         </MenuItem>
+         ))}
       </TextField>
 
        <TextField
+       select
         fullWidth
         id="condition"
         name="condition"
         label="Condition"
-        value={formik.values.condition}
+        value={formik.values.condition ?? ''}
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
         error={formik.touched.condition && Boolean(formik.errors.condition)}
         helperText={formik.touched.condition && formik.errors.condition}
       >
+        {conditions.map((option) => (
+          <MenuItem key={option} value={option}>
+            {option}
+         </MenuItem>
+         ))}
       </TextField>
 
        <TextField
+       select
         fullWidth
         id="processor"
         name="processor"
         label="Processor"
-        value={formik.values.processor}
+        value={formik.values.processor ?? ''}
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
         error={formik.touched.processor && Boolean(formik.errors.processor)}
         helperText={formik.touched.processor && formik.errors.processor}
       >
+        {processors.map((option) => (
+                  <MenuItem key={option} value={option}>
+                    {option}
+                 </MenuItem>
+                 ))}
       </TextField>
 
       <TextField
