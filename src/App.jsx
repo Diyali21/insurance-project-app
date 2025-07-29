@@ -1,30 +1,34 @@
-import HomeSharpIcon from "@mui/icons-material/HomeSharp";
-import LaptopChromebookSharpIcon from "@mui/icons-material/LaptopChromebookSharp";
-import { Box, List, ListItem } from "@mui/material";
-import AppBar from "@mui/material/AppBar";
-import { useState } from "react";
-import {
-  Link,
-  Navigate,
-  Route,
-  Routes
-} from "react-router";
-import "./css/confirm.css";
+import { LaptopList } from "./pages/LaptopList";
 import "./css/dashboard.css";
 import "./css/navBar.css";
 import "./css/new-laptop.css";
-import "./css/not-found.css";
 import "./css/quotes.css";
+import "./css/confirm.css";
+import "./css/not-found.css";
+import "./styles.css";
+import {
+  Routes,
+  Route,
+  Link,
+  Navigate,
+  useParams,
+  useNavigate,
+} from "react-router";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHouse, faLaptop } from "@fortawesome/free-solid-svg-icons";
+import { NewLaptop } from "./pages/NewLaptop";
+import { useState } from "react";
+import { Quotes } from "./pages/Quotes";
+import { NotFound } from "./pages/NotFound";
 import logo from "./images/GuardIT_logo.png";
 import { Confirm } from "./pages/Confirm";
 import { EditLaptop } from "./pages/EditLaptop";
-import { LaptopList } from "./pages/LaptopList";
-import { NewLaptop } from "./pages/NewLaptop";
-import { NotFound } from "./pages/NotFound";
-import { Quotes } from "./pages/Quotes";
-import "./styles.css";
-import {DarkLight} from "./components/DarkLight";
+import { Box, List, ListItem } from "@mui/material";
+import AppBar from "@mui/material/AppBar";
+import HomeSharpIcon from "@mui/icons-material/HomeSharp";
+import LaptopChromebookSharpIcon from "@mui/icons-material/LaptopChromebookSharp";
 
+const pages = ["Dashboard", "Register Laptop"];
 
 export default function App() {
   const [quoteDetails, setQuote] = useState();
@@ -33,7 +37,7 @@ export default function App() {
   };
 
   return (
-          <Box className="App">
+    <Box className="App">
       <AppBar
         position="static"
         sx={{ backgroundColor: "white", boxShadow: "none" }}
