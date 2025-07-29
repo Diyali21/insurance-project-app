@@ -33,7 +33,6 @@ export default function App() {
   };
 
   return (
-    <DarkLight>
           <Box className="App">
       <AppBar
         position="static"
@@ -84,6 +83,5 @@ export default function App() {
         <Route path="/laptop/:id/edit" element={<EditLaptop />} />
       </Routes>
     </Box>
-    </DarkLight>
   );
 }
