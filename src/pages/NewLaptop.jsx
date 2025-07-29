@@ -11,6 +11,7 @@ import Divider from "@mui/material/Divider";
 import { useNavigate } from "react-router";
 import { useState } from 'react';
 import ArrowBack from "@mui/icons-material/ArrowBack";
+import { Box } from "@mui/material";
 
 export function NewLaptop(){
 
@@ -86,8 +87,8 @@ const validationSchema = yup.object({
   });
 
   return (
-    <div><ArrowBack className="back-btn" onClick={() => navigate(-1)}></ArrowBack>
-    <div className="new-laptop-container">
+    <Box><ArrowBack className="back-btn" onClick={() => navigate(-1)}></ArrowBack>
+    <Box className="new-laptop-container">
       <form className="new-laptop-form" onSubmit={formik.handleSubmit}>
         <Divider sx={{ my: 4 }} />
 
@@ -282,13 +283,13 @@ const validationSchema = yup.object({
             }
           />
         </Grid>
-        <div className="submit-container">
+        <Box className="submit-container">
           <Button color="primary" variant="contained" fullWidth type="submit">
             Submit
           </Button>
-        </div>
+        </Box>
       </form>
-    </div>
-    </div>
+    </Box>
+    </Box>
   );
 };
