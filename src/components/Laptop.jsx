@@ -4,6 +4,10 @@ import { faEdit } from "@fortawesome/free-solid-svg-icons";
 import {Box, Typography} from "@mui/material";
 import { Link, useNavigate } from "react-router";
 import EditIcon from "@mui/icons-material/Edit";
+import Button from "@mui/material/Button";
+import ExpandLessIcon from '@mui/icons-material/ExpandLess';
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+
 
 export function Laptop({ laptop, deleteBtn }) {
 
@@ -39,10 +43,12 @@ export function Laptop({ laptop, deleteBtn }) {
       <Box className="laptop-container">
         <Box className="update-delete">
           {deleteBtn}
-            <EditIcon onClick={() => navigate("/laptop/" + laptop.id + "/edit")}> </EditIcon>
+          <EditIcon onClick={() => navigate("/laptop/" + laptop.id + "/edit")}>
+            {" "}
+          </EditIcon>
         </Box>
         <Box
-        component="img"
+          component="img"
           className="laptop-brand"
           src={laptop.brandImage}
           alt={laptop.model}
@@ -50,6 +56,10 @@ export function Laptop({ laptop, deleteBtn }) {
         <Box className="laptop-content-container">
           <Box className="laptop-specs">
             <h2 className="laptop-model">{laptop.model}</h2>
+              <Button className="view-btn" onClick={() => setShow(!show)}>
+                {" "}
+                {show ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+              </Button>
             <p
               className="laptop-condition"
               style={conditionStyling(laptop.condition)}
@@ -63,12 +73,6 @@ export function Laptop({ laptop, deleteBtn }) {
             <h4>Serial Number: {laptop.sNo}</h4>
             <h4>Purchase Date: {laptop.purchase_date}</h4>
             <h4>Current Value: R{laptop.current_value}</h4>
-          </Box>
-          <Box className="view-btn-container">
-            <button className="view-btn" onClick={() => setShow(!show)}>
-              {" "}
-              {show ? "View Less" : "View More"}
-            </button>
           </Box>
           <Link to={"/quotes/" + laptop.id}>
             <button className="quote-btn">Get A Quote ➡️</button>
