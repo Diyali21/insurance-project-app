@@ -6,13 +6,25 @@ import { NumericFormat } from "react-number-format";
 import Button from '@mui/material/Button';
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
-import * as yup from 'yup';
 import { Box } from "@mui/material";
+import { validationSchema } from "../components/ValidationSchema";
 
 export function EditLaptop(){
 
   const {id} = useParams();
-  const [laptop, setLaptop] = useState({});
+  const [laptop, setLaptop] = useState({
+    fullName: "",
+    email: "",
+    contactNo: "",
+    brandName: "",
+    model: "",
+    type: "",
+    condition: "",
+    processor: "",
+    sNo: "",
+    purchase_date: "",
+    current_value: "",
+  });
 
   const laptopTypes = ['Ultrabook', 'Gaming', 'Workstation', 'Convertible', 'Business', 'Chromebook', 'MacBook'];
   const conditions = ['New', 'Used', 'Refurbished'];
@@ -33,35 +45,10 @@ export function EditLaptop(){
 
   const navigate = useNavigate();
 
-  const validationSchema = yup.object({
-    fullName: yup.string().required('Full Name is required'),
-    email: yup.string().email('Enter a valid email').required('Email is required'),
-    contactNo: yup.string().matches(/^[6-8][0-9]{8}$/).required('Contact Number is required'),
-    brandName: yup.string().required('Brand is required'),
-    model: yup.string().required('Model is required'),
-    type: yup.string().required('Type is required'),
-    condition: yup.string().required('Condition is required'),
-    processor: yup.string().required('Processor is required'),
-    sNo: yup.string().required('Serial Number is required'),
-    current_value: yup.number().required('Current Value is required'),
-    purchase_date: yup.date().required('Purchase Date is required'),
-  });
-
+  <validationSchema/>
   const formik = useFormik({
 
-      initialValues: {
-        fullName: '',
-        email: '',
-       contactNo: '',
-        brandName: '',
-        model: '',
-        type: '',
-        condition: '',
-        processor: '',
-        sNo: '',
-        purchase_date: '',
-        current_value: '',
-      },
+      initialValues: laptop,
       validationSchema: validationSchema,
       onSubmit: async (values) => {
             const response = await fetch (`https://68871b7e071f195ca97f45fa.mockapi.io/laptops/${id}`,

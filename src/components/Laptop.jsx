@@ -41,7 +41,8 @@ export function Laptop({ laptop, deleteBtn }) {
           {deleteBtn}
             <EditIcon onClick={() => navigate("/laptop/" + laptop.id + "/edit")}> </EditIcon>
         </Box>
-        <img
+        <Box
+        component="img"
           className="laptop-brand"
           src={laptop.brandImage}
           alt={laptop.model}
