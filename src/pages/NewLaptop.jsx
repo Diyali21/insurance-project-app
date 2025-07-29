@@ -1,23 +1,42 @@
-import { BRAND_LOGOS } from '../components/BRAND_LOGOS';
-import {useFormik } from 'formik';
-import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField';
-import MenuItem from "@mui/material/MenuItem";
-import { NumericFormat } from "react-number-format";
-import Grid from "@mui/material/Grid";
-import Typography from "@mui/material/Typography";
-import Divider from "@mui/material/Divider";
-import { useNavigate } from "react-router";
-import { useState } from 'react';
 import ArrowBack from "@mui/icons-material/ArrowBack";
-import { Box } from "@mui/material";
-import { validationSchema } from '../components/ValidationSchema';
-import PersonIcon from "@mui/icons-material/Person";
 import LaptopIcon from "@mui/icons-material/Laptop";
+import PersonIcon from "@mui/icons-material/Person";
+import { Box } from "@mui/material";
+import Button from '@mui/material/Button';
+import Divider from "@mui/material/Divider";
+import Grid from "@mui/material/Grid";
+import MenuItem from "@mui/material/MenuItem";
+import Snackbar from "@mui/material/Snackbar";
+import TextField from '@mui/material/TextField';
+import Typography from "@mui/material/Typography";
+import { useFormik } from 'formik';
+import * as React from "react";
+import { useState } from 'react';
+import { NumericFormat } from "react-number-format";
+import { useNavigate } from "react-router";
+import { BRAND_LOGOS } from '../components/BRAND_LOGOS';
+import { validationSchema } from '../components/ValidationSchema';
+import Alert from "@mui/material/Alert";
+
 
 export function NewLaptop(){
 
   const navigate = useNavigate();
+
+  const [open, setOpen] = React.useState(false);
+
+  const handleClick = () => {
+    setOpen(true);
+  };
+
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpen(false);
+  };
+
 
   const [laptop_details, setLaptops] = useState([]);
   const laptopTypes = ['Ultrabook', 'Gaming', 'Workstation', 'Convertible', 'Business', 'Chromebook', 'MacBook'];
@@ -70,7 +89,6 @@ export function NewLaptop(){
     );
       console.log('New Laptop: ', newLaptop);
       setLaptops([...laptop_details, newLaptop]);
-      alert(`Form submitted for laptop: ${values.brandName}, ${values.model}`);
       navigate('/dashboard');
     },
   });
@@ -135,7 +153,8 @@ export function NewLaptop(){
 
           <Grid container spacing={2}>
             <Typography variant="h5">
-              <LaptopIcon sx={{ fontSize: 25, verticalAlign: "middle" }} /> Laptop Details
+              <LaptopIcon sx={{ fontSize: 25, verticalAlign: "middle" }} />{" "}
+              Laptop Details
             </Typography>
             <TextField
               select
@@ -287,9 +306,26 @@ export function NewLaptop(){
             />
           </Grid>
           <Box className="submit-container">
-            <Button color="primary" variant="contained" fullWidth type="submit">
+            <Button
+              color="primary"
+              variant="contained"
+              fullWidth
+              type="submit"
+              onClick={handleClick}
+            >
               Submit
             </Button>
+            <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+              <Alert
+                onClose={handleClose}
+                severity="success"
+                variant="filled"
+                sx={{ width: "100%" }}
+              >
+                Laptop successfully registered
+              </Alert>
+            </Snackbar>
+
           </Box>
         </form>
       </Box>

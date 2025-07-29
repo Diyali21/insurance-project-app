@@ -1,8 +1,8 @@
-import {useParams, useNavigate } from "react-router";
-import { CalculatePrice } from "../components/CalculatePrice";
-import {Box, Button, Typography} from "@mui/material";
-import { useEffect, useState } from "react";
 import ArrowBack from "@mui/icons-material/ArrowBack";
+import { Box, Button, Typography } from "@mui/material";
+import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router";
+import { CalculatePrice } from "../components/CalculatePrice";
 
 export function Quotes({selectedQuote}){
 
