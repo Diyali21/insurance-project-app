@@ -17,7 +17,7 @@
 .nav-link-container a {
   text-decoration: none;
   color: black;
-  font-size: 25px;
+  font-size: 22px;
 }
 .spacing-words {
   margin-top: 75px;
@@ -28,8 +28,8 @@ a:hover {
 }
 
 @media (max-width: 1691px) {
-  .nav-link-container a {
-    font-size: 22px;
+  .nav-link-container {
+    font-size: 20px;
   }
 
   .nav-link-description {
@@ -38,7 +38,7 @@ a:hover {
 }
 
 @media (max-width: 1466px) {
-  .nav-link-container a {
+  .nav-link-container {
     font-size: 16px;
   }
 }

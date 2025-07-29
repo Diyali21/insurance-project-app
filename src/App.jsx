@@ -27,8 +27,7 @@ import { Box, List, ListItem } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 import HomeSharpIcon from "@mui/icons-material/HomeSharp";
 import LaptopChromebookSharpIcon from "@mui/icons-material/LaptopChromebookSharp";
-
-const pages = ["Dashboard", "Register Laptop"];
+import {DarkLight} from "./components/DarkLight";
 
 export default function App() {
   const [quoteDetails, setQuote] = useState();
@@ -37,6 +36,7 @@ export default function App() {
   };
 
   return (
+    <DarkLight>
     <Box className="App">
       <AppBar
         position="static"
@@ -87,5 +87,6 @@ export default function App() {
         <Route path="/laptop/:id/edit" element={<EditLaptop />} />
       </Routes>
     </Box>
+    </DarkLight>
   );
 }
