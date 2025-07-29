@@ -1,27 +1,26 @@
 import { useEffect, useState } from "react";
 import { Laptop } from "../components/Laptop";
-import DeleteIcon from "@mui/icons-material/Delete"
+import DeleteIcon from "@mui/icons-material/Delete";
 import IconButton from "@mui/material/IconButton";
 import { Box, Select, TextField, MenuItem, Button } from "@mui/material";
 
 export function LaptopList() {
-
   const [laptop, setLaptop] = useState([]);
   const laptopBrands = ["HP", "Lenovo", "Dell", "Asus", "Apple"];
- const [searchTerm, setSearchTerm] = useState("");
- const [searchBrand, setSearchBrand] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
+  const [searchBrand, setSearchBrand] = useState("");
 
-  async function getLaptops(searchTerm = "", searchBrand="") {
+  async function getLaptops(searchTerm = "", searchBrand = "") {
     const url = new URL("https://68871b7e071f195ca97f45fa.mockapi.io/laptops");
 
-    if (searchTerm){
+    if (searchTerm) {
       url.searchParams.append("search", searchTerm);
     }
 
-    if (searchBrand){
+    if (searchBrand) {
       url.searchParams.append("search", searchBrand);
     }
-    const response = await fetch (url, {method: "GET"});
+    const response = await fetch(url, { method: "GET" });
     const laptops = await response.json();
     console.log(laptops);
     setLaptop(laptops);
@@ -31,18 +30,21 @@ export function LaptopList() {
     getLaptops();
   }, []);
 
-  const deleteLaptop = async (id) =>{
+  const deleteLaptop = async (id) => {
     console.log("Deleting...", id);
-    const response = await fetch(`https://68871b7e071f195ca97f45fa.mockapi.io/laptops/${id}`, {method: "DELETE"});
+    const response = await fetch(
+      `https://68871b7e071f195ca97f45fa.mockapi.io/laptops/${id}`,
+      { method: "DELETE" }
+    );
     const laptop = await response.json();
     console.log("Deleted", laptop);
     getLaptops(searchTerm, searchBrand);
-  }
+  };
 
   const searchLaptops = (event) => {
     event.preventDefault();
     getLaptops(searchTerm, searchBrand);
-  }
+  };
   return (
     <Box>
       <Box className="search-model-container">
@@ -61,7 +63,11 @@ export function LaptopList() {
               value={searchTerm}
               onChange={(event) => setSearchTerm(event.target.value)}
             ></TextField>
-            <Button variant="contained" type="submit" sx={{ ml: 3, height: 55}}>
+            <Button
+              variant="contained"
+              type="submit"
+              sx={{ ml: 3, height: 55 }}
+            >
               Search
             </Button>
           </Box>
@@ -77,7 +83,11 @@ export function LaptopList() {
                 </MenuItem>
               ))}
             </Select>
-            <Button variant="contained" type="submit" sx={{ ml: 3, height: 55 }}>
+            <Button
+              variant="contained"
+              type="submit"
+              sx={{ ml: 3, height: 55 }}
+            >
               Filter
             </Button>
           </Box>
