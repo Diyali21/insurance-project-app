@@ -31,7 +31,7 @@ export function Confirm({selectedQuote}){
     createData('Tier', optionPrice),
     createData('Current value', Math.round((currentValue * 0.5))),
     createData('Total', totalPrice * 12),
-    createData("Total Per Month", totalPrice)
+    createData('Total Per Month', totalPrice)
   ]
 
   const rowsLaptop = [
@@ -57,7 +57,7 @@ export function Confirm({selectedQuote}){
           Device Specs & Quote Breakdown:
         </Typography>
       </Box>
-      <Box className="laptop-details">
+      <Box className="details-container">
         <Box>
           <Typography variant="h5">💻 Laptop Details</Typography>
           <Box className="content">
@@ -103,40 +103,40 @@ export function Confirm({selectedQuote}){
           <Typography variant="h5">🧮 Quote Breakdown</Typography>
           <Box className="content">
             <TableContainer>
-            <Table>
-              <TableBody>
-                {rows.map((row) => (
-                  <TableRow
-                    key={row.name}
-                    sx={{
-                      "& td, & th": { border: 0, py: 1, px: 2, boxShadow: 1 },
-                    }}
-                  >
-                    <TableCell
-                      component="th"
-                      scope="row"
+              <Table>
+                <TableBody>
+                  {rows.map((row) => (
+                    <TableRow
+                      key={row.name}
                       sx={{
-                        fontSize: "1.2rem",
-                        width: 400,
-                        fontWeight: "bold",
+                        "& td, & th": { border: 0, py: 1, px: 2, boxShadow: 1 },
                       }}
                     >
-                      {row.name}:
-                    </TableCell>
-                    <TableCell
-                      align="left"
-                      sx={{
-                        fontSize: "1.2rem",
-                        fontWeight:
-                          row.name == "Total Per Month" ? "bold" : "normal",
-                      }}
-                    >
-                      R{row.value}
-                    </TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
+                      <TableCell
+                        component="th"
+                        scope="row"
+                        sx={{
+                          fontSize: "1.2rem",
+                          width: 400,
+                          fontWeight: "bold",
+                        }}
+                      >
+                        {row.name}:
+                      </TableCell>
+                      <TableCell
+                        align="left"
+                        sx={{
+                          fontSize: "1.2rem",
+                          fontWeight:
+                            row.name == "Total Per Month" ? "bold" : "normal",
+                        }}
+                      >
+                        R{row.value}
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
             </TableContainer>
           </Box>
         </Box>

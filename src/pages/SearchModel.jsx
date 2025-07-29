@@ -5,9 +5,6 @@ export function SearchModel({ model, setModel, brandName, setBrandName, laptop_d
     <div className="search-filter">
       <div className="search-model-container">
       <input className="search-model" type="text" value={model} onChange={(event) => setModel(event.target.value)} placeholder="eg. ThinkPad"></input>
-      </div>
-
-      <div>
 
         <label htmlFor="brandSelect">Choose a Brand: </label>
       <select className="filter-brand"
