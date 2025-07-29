@@ -74,3 +74,9 @@
 .get-cover-btn:hover {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
 }
+
+
+.back-btn{
+  margin-left: 150px;
+  margin-top: 20px;
+}

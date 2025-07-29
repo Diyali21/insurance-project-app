@@ -2,6 +2,7 @@ import {useParams, useNavigate } from "react-router";
 import { CalculatePrice } from "../components/CalculatePrice";
 import {Box} from "@mui/material";
 import { useEffect, useState } from "react";
+import ArrowBack from "@mui/icons-material/ArrowBack";
 
 export function Quotes({selectedQuote}){
 
@@ -50,46 +51,62 @@ export function Quotes({selectedQuote}){
     selectedQuote(quoteDetails);
     navigate("/confirm");
   }
-return(
-    <Box>
-      <Box className="quotes-card-container">
+return (
+  <Box>
+    <ArrowBack className="back-btn" onClick={() => navigate(-1)}></ArrowBack>
+    <Box className="quotes-card-container">
       <Box className="basic-card">
         <Box className="quotes-content">
-        <h1>Basic</h1>
-        <h2>R{basicPrice} pm</h2>
+          <h1>Basic</h1>
+          <h2>R{basicPrice} pm</h2>
         </Box>
-      <p className="quotes-coverage">✅ Theft Protection</p>
-      <p className="quotes-coverage">❌ Liquid Damage</p>
-      <p className="quotes-coverage">❌ Power Surge Damage</p>
-      <p className="quotes-coverage">❌ Accidental Damage</p>
-      <p className="quotes-coverage">❌ Hardware Malfunction</p>
-      <button className="get-cover-btn" onClick={() => generateQuote("Basic", basicPrice)}>Get Cover</button>
+        <p className="quotes-coverage">✅ Theft Protection</p>
+        <p className="quotes-coverage">❌ Liquid Damage</p>
+        <p className="quotes-coverage">❌ Power Surge Damage</p>
+        <p className="quotes-coverage">❌ Accidental Damage</p>
+        <p className="quotes-coverage">❌ Hardware Malfunction</p>
+        <button
+          className="get-cover-btn"
+          onClick={() => generateQuote("Basic", basicPrice)}
+        >
+          Get Cover
+        </button>
       </Box>
-       <Box className="std-card">
+      <Box className="std-card">
         <Box className="quotes-content">
-      <h1>Standard</h1>
-      <h2>R{stdPrice} pm</h2>
-      </Box>
-      <p className="quotes-coverage">✅ Theft Protection</p>
-      <p className="quotes-coverage">✅ Liquid Damage</p>
-      <p className="quotes-coverage">✅ Power Surge Damage</p>
-      <p className="quotes-coverage">❌ Accidental Damage</p>
-      <p className="quotes-coverage">❌ Hardware Malfunction</p>
-      <button className="get-cover-btn" onClick={() => generateQuote("Standard", stdPrice)}>Get Cover</button>
+          <h1>Standard</h1>
+          <h2>R{stdPrice} pm</h2>
+        </Box>
+        <p className="quotes-coverage">✅ Theft Protection</p>
+        <p className="quotes-coverage">✅ Liquid Damage</p>
+        <p className="quotes-coverage">✅ Power Surge Damage</p>
+        <p className="quotes-coverage">❌ Accidental Damage</p>
+        <p className="quotes-coverage">❌ Hardware Malfunction</p>
+        <button
+          className="get-cover-btn"
+          onClick={() => generateQuote("Standard", stdPrice)}
+        >
+          Get Cover
+        </button>
       </Box>
       <Box className="premium-card">
         <Box className="quotes-content">
-      <h1>Premium</h1>
-      <h2>R{premPrice} pm</h2>
-      </Box>
-      <p className="quotes-coverage">✅ Theft Protection</p>
-      <p className="quotes-coverage">✅ Liquid Damage</p>
-      <p className="quotes-coverage">✅ Power Surge Damage</p>
-      <p className="quotes-coverage">✅ Accidental Damage</p>
-      <p className="quotes-coverage">✅ Hardware Malfunction</p>
-      <button className="get-cover-btn" onClick={() => generateQuote("Premium", premPrice)}>Get Cover</button>
-      </Box>
+          <h1>Premium</h1>
+          <h2>R{premPrice} pm</h2>
+        </Box>
+        <p className="quotes-coverage">✅ Theft Protection</p>
+        <p className="quotes-coverage">✅ Liquid Damage</p>
+        <p className="quotes-coverage">✅ Power Surge Damage</p>
+        <p className="quotes-coverage">✅ Accidental Damage</p>
+        <p className="quotes-coverage">✅ Hardware Malfunction</p>
+        <button
+          className="get-cover-btn"
+          onClick={() => generateQuote("Premium", premPrice)}
+        >
+          Get Cover
+        </button>
       </Box>
     </Box>
-  )
+  </Box>
+);
 }
