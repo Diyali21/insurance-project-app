@@ -64,28 +64,6 @@
   width: 500px;
 }
 
-.search-model:hover,
-.search-model:focus {
-  box-shadow: 0 0 6px #007bff;
-}
-
-.search-model::placeholder {
-  opacity: 1;
-  transition: opacity 0.5s ease;
-}
-
-.search-model:hover::placeholder {
-  opacity: 0;
-}
-
-.filter-brand {
-  border: 1px solid;
-  border-radius: 10px;
-  font-size: 16px;
-  height: 4vh;
-  width: 150px;
-}
-
 .view-btn {
   all:unset;
   font-size: 20px;
@@ -130,18 +108,19 @@
 
 .search-filter {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: columns;
   justify-content: center;
-  gap: 100px;
+  gap: 300px;
+  margin-left: 330px;
 }
 
 .search-model-container {
   display: flex;
   justify-content: center;
+  margin-top: 50px;
 }
-
 .search-filter-container {
-  margin-left: 300px;
+  margin-left: 100px;
 }
 
 .delete-icon{
@@ -156,4 +135,16 @@
 
 .laptop-details{
   margin-bottom: 16px;
+}
+
+@media (max-width: 2052px) {
+  .search-filter{
+    margin-left: 400px;
+  }
+}
+
+@media (max-width: 1676px) {
+  .search-filter{
+    margin-left: 450px;
+  }
 }

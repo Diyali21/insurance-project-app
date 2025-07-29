@@ -1,12 +1,11 @@
-import { useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEdit } from "@fortawesome/free-solid-svg-icons";
-import {Box, Typography} from "@mui/material";
-import { Link, useNavigate } from "react-router";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import EditIcon from "@mui/icons-material/Edit";
-import Button from "@mui/material/Button";
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { Box, Typography } from "@mui/material";
+import Button from "@mui/material/Button";
+import { useState } from "react";
+import { useNavigate } from "react-router";
 
 
 export function Laptop({ laptop, deleteBtn }) {
@@ -51,10 +50,17 @@ export function Laptop({ laptop, deleteBtn }) {
         />
         <Box className="laptop-content-container">
           <Box className="laptop-specs">
-            <Typography variant="h5" className="laptop-model">
+            <Typography
+              variant="h4"
+              className="laptop-model"
+              sx={{ mb: 2, fontSize: 26, fontWeight: "bold" }}
+            >
               {laptop.model}
             </Typography>
-            <Button className="view-btn" onClick={() => setShow(!show)}>
+            <Button
+              className="view-btn"
+              onClick={() => setShow(!show)}
+            >
               {" "}
               {show ? <ExpandLessIcon /> : <ExpandMoreIcon />}
             </Button>
@@ -66,28 +72,37 @@ export function Laptop({ laptop, deleteBtn }) {
               {laptop.condition}
             </Typography>
           </Box>
-          <Typography variant="h6">Type: {laptop.type}</Typography>
-          <Typography variant="h6">Processor: {laptop.processor}</Typography>
-          {show ?
-          <Box>
-            <Typography variant="h6">Serial Number: {laptop.sNo}</Typography>
-            <Typography variant="h6">
-              Purchase Date: {laptop.purchase_date}
-            </Typography>
-            <Typography variant="h6">
-              Current Value: R{laptop.current_value}
-            </Typography>
-          </Box>
-        : ''}
+          <Typography variant="h6" sx={{ mb: 2 }}>
+            Type: {laptop.type}
+          </Typography>
+          <Typography variant="h6" sx={{ mb: 2 }}>
+            Processor: {laptop.processor}
+          </Typography>
+          {show ? (
+            <Box>
+              <Typography variant="h6" sx={{ mb: 2 }}>
+                Serial Number: {laptop.sNo}
+              </Typography>
+              <Typography variant="h6" sx={{ mb: 2 }}>
+                Purchase Date: {laptop.purchase_date}
+              </Typography>
+              <Typography variant="h6" sx={{ mb: 2 }}>
+                Current Value: R{laptop.current_value}
+              </Typography>
+            </Box>
+          ) : (
+            ""
+          )}
           <Box>
             <Button
               variant="outlined"
               className="quote-btn"
               onClick={() => navigate("/quotes/" + laptop.id)}
+              sx={{ fontSize: 18 }}
             >
-              Get A Quote ➡️
+              Get A Quote <ArrowForwardIcon />
             </Button>
-            </Box>
+          </Box>
         </Box>
       </Box>
     </Box>

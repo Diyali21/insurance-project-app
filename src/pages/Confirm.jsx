@@ -32,7 +32,7 @@ export function Confirm({selectedQuote}){
     createData('Condition', conditionPrice),
     createData('Year', yearPrice),
     createData('Tier', optionPrice),
-    createData('Current value', Math.round((currentValue * 0.5))),
+    createData('Current value (halfed)', Math.round((currentValue * 0.5))),
     createData('Total', totalPrice * 12),
     createData('Total Per Month', totalPrice)
   ]
@@ -44,7 +44,7 @@ export function Confirm({selectedQuote}){
     createData('Condition', condition),
     createData('Serial Number', sNo),
     createData('Purchase Date', purchaseDate),
-    createData('Current Value (halfed)', "R" + currentValue),
+    createData('Current Value', "R" + currentValue),
   ]
 
   return (
