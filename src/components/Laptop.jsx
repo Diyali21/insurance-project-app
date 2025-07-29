@@ -53,7 +53,7 @@ export function Laptop({ laptop, deleteBtn }) {
             <Typography
               variant="h4"
               className="laptop-model"
-              sx={{ mb: 2, fontSize: 26, fontWeight: "bold" }}
+              sx={{ mb: 2, fontSize: 22, fontWeight: "bold" }}
             >
               {laptop.model}
             </Typography>
@@ -72,7 +72,7 @@ export function Laptop({ laptop, deleteBtn }) {
               {laptop.condition}
             </Typography>
           </Box>
-          <Typography variant="h6" sx={{ mb: 2 }}>
+          <Typography variant="h7" sx={{ mb: 2 }}>
             Type: {laptop.type}
           </Typography>
           <Typography variant="h6" sx={{ mb: 2 }}>
