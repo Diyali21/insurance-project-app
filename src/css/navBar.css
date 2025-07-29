@@ -42,3 +42,8 @@ a:hover {
     font-size: 16px;
   }
 }
+
+.logo {
+  margin-top: 20px;
+  height: 120px;
+}
