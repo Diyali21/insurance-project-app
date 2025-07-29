@@ -1,7 +1,7 @@
-import {Box, Typography, TableCell, TableBody, Table, TableRow, TableContainer} from "@mui/material";
 import LaptopIcon from "@mui/icons-material/Laptop";
-import RequestQuoteIcon from "@mui/icons-material/RequestQuote";
 import LockIcon from "@mui/icons-material/Lock";
+import RequestQuoteIcon from "@mui/icons-material/RequestQuote";
+import { Box, Table, TableBody, TableCell, TableContainer, TableRow, Typography } from "@mui/material";
 
 function createData(name, value){
   return {name, value};
@@ -107,8 +107,7 @@ export function Confirm({selectedQuote}){
 
         <Box>
           <Typography variant="h5">
-            <RequestQuoteIcon sx={{ fontSize: 25, verticalAlign: "middle" }} />{" "}
-            Quote Breakdown:
+            <RequestQuoteIcon sx={{ fontSize: 25, verticalAlign: "middle" }} /> Quote Breakdown:
           </Typography>
           <Box className="content">
             <TableContainer>
