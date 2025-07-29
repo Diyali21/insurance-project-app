@@ -53,14 +53,11 @@ export function Laptop({ laptop, deleteBtn }) {
             <Typography
               variant="h4"
               className="laptop-model"
-              sx={{ mb: 2, fontSize: 26, fontWeight: "bold" }}
+              sx={{ mb: 2, fontSize: 22, fontWeight: "bold" }}
             >
               {laptop.model}
             </Typography>
-            <Button
-              className="view-btn"
-              onClick={() => setShow(!show)}
-            >
+            <Button className="view-btn" onClick={() => setShow(!show)}>
               {" "}
               {show ? <ExpandLessIcon /> : <ExpandMoreIcon />}
             </Button>
@@ -72,21 +69,21 @@ export function Laptop({ laptop, deleteBtn }) {
               {laptop.condition}
             </Typography>
           </Box>
-          <Typography variant="h6" sx={{ mb: 2 }}>
+          <Typography variant="h6" sx={{ mb: 2, fontSize: 17 }}>
             Type: {laptop.type}
           </Typography>
-          <Typography variant="h6" sx={{ mb: 2 }}>
+          <Typography variant="h6" sx={{ mb: 2, fontSize: 17 }}>
             Processor: {laptop.processor}
           </Typography>
           {show ? (
             <Box>
-              <Typography variant="h6" sx={{ mb: 2 }}>
+              <Typography variant="h6" sx={{ mb: 2, fontSize: 17 }}>
                 Serial Number: {laptop.sNo}
               </Typography>
-              <Typography variant="h6" sx={{ mb: 2 }}>
+              <Typography variant="h6" sx={{ mb: 2, fontSize: 17 }}>
                 Purchase Date: {laptop.purchase_date}
               </Typography>
-              <Typography variant="h6" sx={{ mb: 2 }}>
+              <Typography variant="h6" sx={{ mb: 2, fontSize: 17 }}>
                 Current Value: R{laptop.current_value}
               </Typography>
             </Box>
@@ -98,7 +95,7 @@ export function Laptop({ laptop, deleteBtn }) {
               variant="outlined"
               className="quote-btn"
               onClick={() => navigate("/quotes/" + laptop.id)}
-              sx={{ fontSize: 18 }}
+              sx={{ fontSize: 15 }}
             >
               Get A Quote <ArrowForwardIcon />
             </Button>

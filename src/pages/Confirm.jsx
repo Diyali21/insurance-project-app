@@ -50,7 +50,7 @@ export function Confirm({selectedQuote}){
   return (
     <Box>
       <Box className="headings">
-        <Typography variant="h3" sx={{ mb: 5 }}>
+        <Typography variant="h4" sx={{ mb: 5 }}>
           Locked, loaded, and laptop-secured! <LockIcon sx={{fontSize: 35}}/>
         </Typography>
         <Typography variant="h5" sx={{ mb: 5 }}>
@@ -62,8 +62,8 @@ export function Confirm({selectedQuote}){
       </Box>
       <Box className="details-container">
         <Box>
-          <Typography variant="h5">
-            <LaptopIcon sx={{ fontSize: 25, verticalAlign: "middle" }} /> Laptop
+          <Typography variant="h6">
+            <LaptopIcon sx={{ fontSize: 18, verticalAlign: "middle" }} /> Laptop
             Details:
           </Typography>
           <Box className="content">
@@ -81,7 +81,7 @@ export function Confirm({selectedQuote}){
                         component="th"
                         scope="row"
                         sx={{
-                          fontSize: "1.2rem",
+                          fontSize: "1.1rem",
                           width: 400,
                           fontWeight: "bold",
                         }}
@@ -91,7 +91,7 @@ export function Confirm({selectedQuote}){
                       <TableCell align="left">
                         <Typography
                           sx={{
-                            fontSize: "1.2rem",
+                            fontSize: "1.1rem",
                           }}
                         >
                           {row.value}
@@ -106,8 +106,8 @@ export function Confirm({selectedQuote}){
         </Box>
 
         <Box>
-          <Typography variant="h5">
-            <RequestQuoteIcon sx={{ fontSize: 25, verticalAlign: "middle" }} /> Quote Breakdown:
+          <Typography variant="h6">
+            <RequestQuoteIcon sx={{ fontSize: 18, verticalAlign: "middle" }} /> Quote Breakdown:
           </Typography>
           <Box className="content">
             <TableContainer>
@@ -124,7 +124,7 @@ export function Confirm({selectedQuote}){
                         component="th"
                         scope="row"
                         sx={{
-                          fontSize: "1.2rem",
+                          fontSize: "1.1rem",
                           width: 400,
                           fontWeight: "bold",
                         }}
@@ -134,7 +134,7 @@ export function Confirm({selectedQuote}){
                       <TableCell
                         align="left"
                         sx={{
-                          fontSize: "1.2rem",
+                          fontSize: "1.1rem",
                           fontWeight:
                             row.name == "Total Per Month" ? "bold" : "normal",
                         }}

@@ -101,8 +101,8 @@ export function NewLaptop(){
           <Divider sx={{ my: 4 }} />
 
           <Grid container spacing={2}>
-            <Typography variant="h5">
-              <PersonIcon sx={{ fontSize: 27, verticalAlign: "middle" }} />{" "}
+            <Typography variant="h6">
+              <PersonIcon sx={{ fontSize: 25, verticalAlign: "middle" }} />{" "}
               Personal Details
             </Typography>
             <TextField
@@ -152,7 +152,7 @@ export function NewLaptop(){
           <Divider sx={{ my: 4 }} />
 
           <Grid container spacing={2}>
-            <Typography variant="h5">
+            <Typography variant="h6">
               <LaptopIcon sx={{ fontSize: 25, verticalAlign: "middle" }} />{" "}
               Laptop Details
             </Typography>

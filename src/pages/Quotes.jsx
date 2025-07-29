@@ -57,45 +57,45 @@ return (
     <Box className="quotes-card-container">
       <Box className="basic-card">
         <Box className="quotes-content">
-          <Typography variant="h3" sx={{ mb: 3, mt: 3, fontWeight: "bold" }}>
+          <Typography variant="h4" sx={{ mb: 3, mt: 3, fontWeight: "bold" }}>
             Basic
           </Typography>
-          <Typography variant="h4" sx={{ mb: 3, mt: 3, fontWeight: "bold" }}>
+          <Typography variant="h5" sx={{ mb: 3, mt: 3, fontWeight: "bold" }}>
             R{basicPrice} pm
           </Typography>
         </Box>
         <Typography
           variant="body1"
           className="quotes-coverage"
-          sx={{ fontSize: 20, mb: 3 }}
+          sx={{ fontSize: 18, mb: 3 }}
         >
           ✅ Theft Protection
         </Typography>
         <Typography
           variant="body1"
           className="quotes-coverage"
-          sx={{ fontSize: 20, mb: 3 }}
+          sx={{ fontSize: 18, mb: 3 }}
         >
           ❌ Liquid Damage
         </Typography>
         <Typography
           variant="body1"
           className="quotes-coverage"
-          sx={{ fontSize: 20, mb: 3 }}
+          sx={{ fontSize: 18, mb: 3 }}
         >
           ❌ Power Surge Damage
         </Typography>
         <Typography
           variant="body1"
           className="quotes-coverage"
-          sx={{ fontSize: 20, mb: 3 }}
+          sx={{ fontSize: 18, mb: 3 }}
         >
           ❌ Accidental Damage
         </Typography>
         <Typography
           variant="body1"
           className="quotes-coverage"
-          sx={{ fontSize: 20, mb: 3 }}
+          sx={{ fontSize: 18, mb: 3 }}
         >
           ❌ Hardware Malfunction
         </Typography>
@@ -111,34 +111,34 @@ return (
       </Box>
       <Box className="std-card">
         <Box className="quotes-content">
-          <Typography variant="h3" sx={{ mb: 3, mt: 3, fontWeight: "bold" }}>
+          <Typography variant="h4" sx={{ mb: 3, mt: 3, fontWeight: "bold" }}>
             Standard
           </Typography>
-          <Typography variant="h4" sx={{ mb: 3, mt: 3, fontWeight: "bold" }}>
+          <Typography variant="h5" sx={{ mb: 3, mt: 3, fontWeight: "bold" }}>
             R{stdPrice} pm
           </Typography>
         </Box>
         <Typography
           variant="body1"
           className="quotes-coverage"
-          sx={{ fontSize: 20, mb: 3 }}>
+          sx={{ fontSize: 18, mb: 3 }}>
             ✅ Theft Protection</Typography>
         <Typography
           variant="body1"
           className="quotes-coverage"
-          sx={{ fontSize: 20, mb: 3 }}>✅ Liquid Damage</Typography>
+          sx={{ fontSize: 18, mb: 3 }}>✅ Liquid Damage</Typography>
         <Typography
           variant="body1"
           className="quotes-coverage"
-          sx={{ fontSize: 20, mb: 3 }}>✅ Power Surge Damage</Typography>
+          sx={{ fontSize: 18, mb: 3 }}>✅ Power Surge Damage</Typography>
         <Typography
           variant="body1"
           className="quotes-coverage"
-          sx={{ fontSize: 20, mb: 3 }}>❌ Accidental Damage</Typography>
+          sx={{ fontSize: 18, mb: 3 }}>❌ Accidental Damage</Typography>
         <Typography
           variant="body1"
           className="quotes-coverage"
-          sx={{ fontSize: 20, mb: 3 }}>❌ Hardware Malfunction</Typography>
+          sx={{ fontSize: 18, mb: 3 }}>❌ Hardware Malfunction</Typography>
         <Box className="get-cover-btn">
           <Button
             color="white"
@@ -151,33 +151,33 @@ return (
       </Box>
       <Box className="premium-card">
         <Box className="quotes-content">
-          <Typography variant="h3" sx={{ mb: 3, mt: 3, fontWeight: "bold" }}>
+          <Typography variant="h4" sx={{ mb: 3, mt: 3, fontWeight: "bold" }}>
             Premium
           </Typography>
-          <Typography variant="h4" sx={{ mb: 3, mt: 3, fontWeight: "bold" }}>
+          <Typography variant="h5" sx={{ mb: 3, mt: 3, fontWeight: "bold" }}>
             R{premPrice} pm
           </Typography>
         </Box>
         <Typography
           variant="body1"
           className="quotes-coverage"
-          sx={{ fontSize: 20, mb: 3 }}>✅ Theft Protection</Typography>
+          sx={{ fontSize: 18, mb: 3 }}>✅ Theft Protection</Typography>
         <Typography
           variant="body1"
           className="quotes-coverage"
-          sx={{ fontSize: 20, mb: 3 }}>✅ Liquid Damage</Typography>
+          sx={{ fontSize: 18, mb: 3 }}>✅ Liquid Damage</Typography>
         <Typography
           variant="body1"
           className="quotes-coverage"
-          sx={{ fontSize: 20, mb: 3 }}>✅ Power Surge Damage</Typography>
+          sx={{ fontSize: 18, mb: 3 }}>✅ Power Surge Damage</Typography>
         <Typography
           variant="body1"
           className="quotes-coverage"
-          sx={{ fontSize: 20, mb: 3 }}>✅ Accidental Damage</Typography>
+          sx={{ fontSize: 18, mb: 3 }}>✅ Accidental Damage</Typography>
         <Typography
           variant="body1"
           className="quotes-coverage"
-          sx={{ fontSize: 20, mb: 3 }}>✅ Hardware Malfunction</Typography>
+          sx={{ fontSize: 18, mb: 3 }}>✅ Hardware Malfunction</Typography>
         <Box className="get-cover-btn">
           <Button
             color="white"

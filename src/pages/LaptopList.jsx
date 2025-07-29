@@ -55,6 +55,7 @@ export function LaptopList() {
         >
           <Box>
             <TextField
+              size="small"
               sx={{ width: 400 }}
               id="outlined-basic"
               label="Laptop Model"
@@ -66,13 +67,14 @@ export function LaptopList() {
             <Button
               variant="contained"
               type="submit"
-              sx={{ ml: 3, height: 55 }}
+              sx={{ ml: 3, height: 40 }}
             >
               Search
             </Button>
           </Box>
           <Box>
             <Select
+            size="small"
               value={searchBrand}
               onChange={(event) => setSearchBrand(event.target.value)}
             >
@@ -86,7 +88,7 @@ export function LaptopList() {
             <Button
               variant="contained"
               type="submit"
-              sx={{ ml: 3, height: 55 }}
+              sx={{ ml: 3, height: 40 }}
             >
               Filter
             </Button>
