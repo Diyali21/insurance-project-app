@@ -1,6 +1,6 @@
 import {useParams, useNavigate } from "react-router";
 import { CalculatePrice } from "../components/CalculatePrice";
-import {Box} from "@mui/material";
+import {Box, Button} from "@mui/material";
 import { useEffect, useState } from "react";
 import ArrowBack from "@mui/icons-material/ArrowBack";
 
@@ -65,12 +65,15 @@ return (
         <p className="quotes-coverage">❌ Power Surge Damage</p>
         <p className="quotes-coverage">❌ Accidental Damage</p>
         <p className="quotes-coverage">❌ Hardware Malfunction</p>
-        <button
-          className="get-cover-btn"
-          onClick={() => generateQuote("Basic", basicPrice)}
-        >
-          Get Cover
-        </button>
+        <Box className="get-cover-btn">
+          <Button
+          color="white"
+            className="get-cover-btn"
+            onClick={() => generateQuote("Premium", premPrice)}
+          >
+            Get Cover
+          </Button>
+        </Box>
       </Box>
       <Box className="std-card">
         <Box className="quotes-content">
@@ -82,12 +85,15 @@ return (
         <p className="quotes-coverage">✅ Power Surge Damage</p>
         <p className="quotes-coverage">❌ Accidental Damage</p>
         <p className="quotes-coverage">❌ Hardware Malfunction</p>
-        <button
-          className="get-cover-btn"
-          onClick={() => generateQuote("Standard", stdPrice)}
-        >
-          Get Cover
-        </button>
+        <Box className="get-cover-btn">
+          <Button
+            color="white"
+            className="get-cover-btn"
+            onClick={() => generateQuote("Premium", premPrice)}
+          >
+            Get Cover
+          </Button>
+        </Box>
       </Box>
       <Box className="premium-card">
         <Box className="quotes-content">
@@ -99,12 +105,15 @@ return (
         <p className="quotes-coverage">✅ Power Surge Damage</p>
         <p className="quotes-coverage">✅ Accidental Damage</p>
         <p className="quotes-coverage">✅ Hardware Malfunction</p>
-        <button
-          className="get-cover-btn"
-          onClick={() => generateQuote("Premium", premPrice)}
-        >
-          Get Cover
-        </button>
+        <Box className="get-cover-btn">
+          <Button
+            color="white"
+            className="get-cover-btn"
+            onClick={() => generateQuote("Premium", premPrice)}
+          >
+            Get Cover
+          </Button>
+        </Box>
       </Box>
     </Box>
   </Box>

@@ -34,10 +34,6 @@ export function Laptop({ laptop, deleteBtn }) {
 
   const [show, setShow] = useState(true);
 
-  const detailsStyles={
-    display: show ? "block" : "none"
-  };
-
   return (
     <Box className="laptop-list-container">
       <Box className="laptop-container">
@@ -55,28 +51,43 @@ export function Laptop({ laptop, deleteBtn }) {
         />
         <Box className="laptop-content-container">
           <Box className="laptop-specs">
-            <h2 className="laptop-model">{laptop.model}</h2>
-              <Button className="view-btn" onClick={() => setShow(!show)}>
-                {" "}
-                {show ? <ExpandLessIcon /> : <ExpandMoreIcon />}
-              </Button>
-            <p
+            <Typography variant="h5" className="laptop-model">
+              {laptop.model}
+            </Typography>
+            <Button className="view-btn" onClick={() => setShow(!show)}>
+              {" "}
+              {show ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+            </Button>
+            <Typography
+              variant="p"
               className="laptop-condition"
               style={conditionStyling(laptop.condition)}
             >
               {laptop.condition}
-            </p>
+            </Typography>
           </Box>
-          <h4>Type: {laptop.type}</h4>
-          <h4>Processor: {laptop.processor}</h4>
-          <Box style={detailsStyles}>
-            <h4>Serial Number: {laptop.sNo}</h4>
-            <h4>Purchase Date: {laptop.purchase_date}</h4>
-            <h4>Current Value: R{laptop.current_value}</h4>
+          <Typography variant="h6">Type: {laptop.type}</Typography>
+          <Typography variant="h6">Processor: {laptop.processor}</Typography>
+          {show ?
+          <Box>
+            <Typography variant="h6">Serial Number: {laptop.sNo}</Typography>
+            <Typography variant="h6">
+              Purchase Date: {laptop.purchase_date}
+            </Typography>
+            <Typography variant="h6">
+              Current Value: R{laptop.current_value}
+            </Typography>
           </Box>
-          <Link to={"/quotes/" + laptop.id}>
-            <button className="quote-btn">Get A Quote ➡️</button>
-          </Link>
+        : ''}
+          <Box>
+            <Button
+              variant="outlined"
+              className="quote-btn"
+              onClick={() => navigate("/quotes/" + laptop.id)}
+            >
+              Get A Quote ➡️
+            </Button>
+            </Box>
         </Box>
       </Box>
     </Box>

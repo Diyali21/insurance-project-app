@@ -78,12 +78,6 @@
   opacity: 0;
 }
 
-/* .search-model-container {
-  display: grid;
-  margin-top: 70px;
-  justify-content: center;
-} */
-
 .filter-brand {
   border: 1px solid;
   border-radius: 10px;
@@ -158,4 +152,8 @@
 .update-delete{
   display: flex;
   gap: 275px;
+}
+
+.laptop-details{
+  margin-bottom: 16px;
 }

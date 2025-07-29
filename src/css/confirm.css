@@ -8,7 +8,11 @@
 }
 
 .content {
-  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40px;
+  width: 750px;
 }
 
 .headings {
@@ -26,4 +30,8 @@
   .laptop-details {
     gap: 50px;
   }
+}
+
+.table{
+  width: 20px;
 }

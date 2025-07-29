@@ -1,4 +1,4 @@
-import {Box, Typography, TableCell, TableBody, Table, TableRow} from "@mui/material";
+import {Box, Typography, TableCell, TableBody, Table, TableRow, TableContainer} from "@mui/material";
 
 function createData(name, value){
   return {name, value};
@@ -44,65 +44,103 @@ export function Confirm({selectedQuote}){
     createData('Current Value (halfed)', "R" + currentValue),
   ]
 
-  return(
+  return (
     <Box>
       <Box className="headings">
-        <Typography variant="h3" sx={{mb: 5}}>Locked, loaded, and laptop-secured! 🔐</Typography>
-        <Typography variant="h5" sx={{mb: 5}}>{quoteType} coverage active for your {model} - R{totalPrice} pm</Typography>
-        <Typography variant="h6" sx={{mb: 3}}>Device Specs & Quote Breakdown:</Typography>
+        <Typography variant="h3" sx={{ mb: 5 }}>
+          Locked, loaded, and laptop-secured! 🔐
+        </Typography>
+        <Typography variant="h5" sx={{ mb: 5 }}>
+          {quoteType} coverage active for your {model} - R{totalPrice} pm
+        </Typography>
+        <Typography variant="h6" sx={{ mb: 3 }}>
+          Device Specs & Quote Breakdown:
+        </Typography>
       </Box>
       <Box className="laptop-details">
         <Box>
-          <Table>
-            <Typography  variant="h5">💻 Laptop Details</Typography>
-            <Box className="content">
-            <TableBody>
-            {rowsLaptop.map((row) => (
-           <TableRow
-             key={row.name}
-            sx={{ '& td, & th': { border: 0, py: 1, px: 2, boxShadow: 1 } }}
-           >
-             <TableCell component="th" scope="row" sx={{ fontSize: "1.2rem", width: 400, fontWeight: "bold" }}>
-              {row.name}:
-           </TableCell>
-            <TableCell align="left">
-            <Typography
-             sx={{
-              fontSize: "1.2rem"
-           }}
-            >
-            {row.value}
-           </Typography>
-        </TableCell>
-        </TableRow>
-         ))}
-          </TableBody>
-
-          </Box>
-          </Table>
-          </Box>
-
-          <Box>
-          <Table>
-            <Typography variant="h5">🧮 Quote Breakdown</Typography>
-            <Box className="content">
-            <TableBody>
-            {rows.map((row) => (
-            <TableRow
-              key={row.name}
-              sx={{ '& td, & th': { border: 0, py: 1, px: 2, boxShadow: 1 } }}
-            >
-              <TableCell component="th" scope="row" sx={{fontSize: "1.2rem", width: 400, fontWeight: "bold"}}>
-                {row.name}:
-              </TableCell>
-               <TableCell align="left" sx={{fontSize: "1.2rem", fontWeight: row.name =="Total Per Month"? "bold" : "normal"}}>R{row.value}</TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-          </Box>
-          </Table>
+          <Typography variant="h5">💻 Laptop Details</Typography>
+          <Box className="content">
+            <TableContainer>
+              <Table className="table">
+                <TableBody>
+                  {rowsLaptop.map((row) => (
+                    <TableRow
+                      key={row.name}
+                      sx={{
+                        "& td, & th": { border: 0, py: 1, px: 2, boxShadow: 1 },
+                      }}
+                    >
+                      <TableCell
+                        component="th"
+                        scope="row"
+                        sx={{
+                          fontSize: "1.2rem",
+                          width: 400,
+                          fontWeight: "bold",
+                        }}
+                      >
+                        {row.name}:
+                      </TableCell>
+                      <TableCell align="left">
+                        <Typography
+                          sx={{
+                            fontSize: "1.2rem",
+                          }}
+                        >
+                          {row.value}
+                        </Typography>
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </TableContainer>
           </Box>
         </Box>
+
+        <Box>
+          <Typography variant="h5">🧮 Quote Breakdown</Typography>
+          <Box className="content">
+            <TableContainer>
+            <Table>
+              <TableBody>
+                {rows.map((row) => (
+                  <TableRow
+                    key={row.name}
+                    sx={{
+                      "& td, & th": { border: 0, py: 1, px: 2, boxShadow: 1 },
+                    }}
+                  >
+                    <TableCell
+                      component="th"
+                      scope="row"
+                      sx={{
+                        fontSize: "1.2rem",
+                        width: 400,
+                        fontWeight: "bold",
+                      }}
+                    >
+                      {row.name}:
+                    </TableCell>
+                    <TableCell
+                      align="left"
+                      sx={{
+                        fontSize: "1.2rem",
+                        fontWeight:
+                          row.name == "Total Per Month" ? "bold" : "normal",
+                      }}
+                    >
+                      R{row.value}
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+            </TableContainer>
+          </Box>
+        </Box>
+      </Box>
     </Box>
-  )
+  );
 }
