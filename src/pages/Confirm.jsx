@@ -45,7 +45,7 @@ export function Confirm({selectedQuote}){
   ]
 
   return(
-    <div>
+    <Box>
       <Box className="headings">
         <Typography variant="h3" sx={{mb: 5}}>Locked, loaded, and laptop-secured! 🔐</Typography>
         <Typography variant="h5" sx={{mb: 5}}>{quoteType} coverage active for your {model} - R{totalPrice} pm</Typography>
@@ -54,7 +54,7 @@ export function Confirm({selectedQuote}){
       <Box className="laptop-details">
         <Box>
           <Table>
-            <Typography  variant="h5" gutterBottom>💻 Laptop Details</Typography>
+            <Typography  variant="h5">💻 Laptop Details</Typography>
             <Box className="content">
             <TableBody>
             {rowsLaptop.map((row) => (
@@ -62,8 +62,8 @@ export function Confirm({selectedQuote}){
              key={row.name}
             sx={{ '& td, & th': { border: 0, py: 1, px: 2, boxShadow: 1 } }}
            >
-             <TableCell component="th" scope="row" sx={{ fontSize: "1.2rem", width: 400 }}>
-              <strong>{row.name}:</strong>
+             <TableCell component="th" scope="row" sx={{ fontSize: "1.2rem", width: 400, fontWeight: "bold" }}>
+              {row.name}:
            </TableCell>
             <TableCell align="left">
             <Typography
@@ -84,7 +84,7 @@ export function Confirm({selectedQuote}){
 
           <Box>
           <Table>
-            <Typography variant="h5" gutterBottom>🧮 Quote Breakdown</Typography>
+            <Typography variant="h5">🧮 Quote Breakdown</Typography>
             <Box className="content">
             <TableBody>
             {rows.map((row) => (
@@ -92,10 +92,10 @@ export function Confirm({selectedQuote}){
               key={row.name}
               sx={{ '& td, & th': { border: 0, py: 1, px: 2, boxShadow: 1 } }}
             >
-              <TableCell component="th" scope="row" sx={{fontSize: "1.2rem", width: 400}}>
-                <strong>{row.name}:</strong>
+              <TableCell component="th" scope="row" sx={{fontSize: "1.2rem", width: 400, fontWeight: "bold"}}>
+                {row.name}:
               </TableCell>
-               <TableCell align="left" sx={{fontSize: "1.2rem", fontWeight: row.name =="Total Per Month"? 800 : 100}}>R{row.value}</TableCell>
+               <TableCell align="left" sx={{fontSize: "1.2rem", fontWeight: row.name =="Total Per Month"? "bold" : "normal"}}>R{row.value}</TableCell>
               </TableRow>
             ))}
           </TableBody>
@@ -103,6 +103,6 @@ export function Confirm({selectedQuote}){
           </Table>
           </Box>
         </Box>
-    </div>
+    </Box>
   )
 }
