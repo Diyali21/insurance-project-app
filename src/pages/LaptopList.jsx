@@ -3,6 +3,7 @@ import { Laptop } from "../components/Laptop";
 import { SearchModel } from "./SearchModel";
 import DeleteIcon from "@mui/icons-material/Delete"
 import IconButton from "@mui/material/IconButton";
+import { Box } from "@mui/material";
 
 export function LaptopList() {
 
@@ -38,8 +39,8 @@ export function LaptopList() {
     getLaptops(id);
   }
   return (
-    <div>
-      <div>
+    <Box>
+      <Box>
         <SearchModel
         model={model}
         setModel={setModel}
@@ -47,15 +48,17 @@ export function LaptopList() {
         setBrandName={setBrandName}
         laptop_details={laptop}
         />
-      </div>
-      <section className="laptop-list-container" >
+      </Box>
+      <Box
+        component="section"
+        className="laptop-list-container" >
         {searchFilter.map((laptop, index) => (
           <Laptop key={index} laptop={laptop}
           deleteBtn={
             <IconButton aria-label="delete" onClick={() => deleteLaptop(laptop.id)}><DeleteIcon/></IconButton>
             }/>
         ))}
-      </section>
-    </div>
+        </Box>
+    </Box>
   );
 }
