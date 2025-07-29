@@ -1,4 +1,7 @@
 import {Box, Typography, TableCell, TableBody, Table, TableRow, TableContainer} from "@mui/material";
+import LaptopIcon from "@mui/icons-material/Laptop";
+import RequestQuoteIcon from "@mui/icons-material/RequestQuote";
+import LockIcon from "@mui/icons-material/Lock";
 
 function createData(name, value){
   return {name, value};
@@ -48,7 +51,7 @@ export function Confirm({selectedQuote}){
     <Box>
       <Box className="headings">
         <Typography variant="h3" sx={{ mb: 5 }}>
-          Locked, loaded, and laptop-secured! 🔐
+          Locked, loaded, and laptop-secured! <LockIcon sx={{fontSize: 35}}/>
         </Typography>
         <Typography variant="h5" sx={{ mb: 5 }}>
           {quoteType} coverage active for your {model} - R{totalPrice} pm
@@ -59,7 +62,10 @@ export function Confirm({selectedQuote}){
       </Box>
       <Box className="details-container">
         <Box>
-          <Typography variant="h5">💻 Laptop Details</Typography>
+          <Typography variant="h5">
+            <LaptopIcon sx={{ fontSize: 25, verticalAlign: "middle" }} /> Laptop
+            Details:
+          </Typography>
           <Box className="content">
             <TableContainer>
               <Table className="table">
@@ -100,7 +106,10 @@ export function Confirm({selectedQuote}){
         </Box>
 
         <Box>
-          <Typography variant="h5">🧮 Quote Breakdown</Typography>
+          <Typography variant="h5">
+            <RequestQuoteIcon sx={{ fontSize: 25, verticalAlign: "middle" }} />{" "}
+            Quote Breakdown:
+          </Typography>
           <Box className="content">
             <TableContainer>
               <Table>
