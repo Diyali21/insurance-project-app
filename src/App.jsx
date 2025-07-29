@@ -1,34 +1,30 @@
-import { LaptopList } from "./pages/LaptopList";
+import HomeSharpIcon from "@mui/icons-material/HomeSharp";
+import LaptopChromebookSharpIcon from "@mui/icons-material/LaptopChromebookSharp";
+import { Box, List, ListItem } from "@mui/material";
+import AppBar from "@mui/material/AppBar";
+import { useState } from "react";
+import {
+  Link,
+  Navigate,
+  Route,
+  Routes
+} from "react-router";
+import "./css/confirm.css";
 import "./css/dashboard.css";
 import "./css/navBar.css";
 import "./css/new-laptop.css";
-import "./css/quotes.css";
-import "./css/confirm.css";
 import "./css/not-found.css";
-import "./styles.css";
-import {
-  Routes,
-  Route,
-  Link,
-  Navigate,
-  useParams,
-  useNavigate,
-} from "react-router";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHouse, faLaptop } from "@fortawesome/free-solid-svg-icons";
-import { NewLaptop } from "./pages/NewLaptop";
-import { useState } from "react";
-import { Quotes } from "./pages/Quotes";
-import { NotFound } from "./pages/NotFound";
+import "./css/quotes.css";
 import logo from "./images/GuardIT_logo.png";
 import { Confirm } from "./pages/Confirm";
 import { EditLaptop } from "./pages/EditLaptop";
-import { Box, List, ListItem } from "@mui/material";
-import AppBar from "@mui/material/AppBar";
-import HomeSharpIcon from "@mui/icons-material/HomeSharp";
-import LaptopChromebookSharpIcon from "@mui/icons-material/LaptopChromebookSharp";
+import { LaptopList } from "./pages/LaptopList";
+import { NewLaptop } from "./pages/NewLaptop";
+import { NotFound } from "./pages/NotFound";
+import { Quotes } from "./pages/Quotes";
+import "./styles.css";
+import {DarkLight} from "./components/DarkLight";
 
-const pages = ["Dashboard", "Register Laptop"];
 
 export default function App() {
   const [quoteDetails, setQuote] = useState();
@@ -37,8 +33,12 @@ export default function App() {
   };
 
   return (
-    <Box className="App">
-      <AppBar position="static" sx={{backgroundColor: "white", boxShadow: "none"}}>
+    <DarkLight>
+          <Box className="App">
+      <AppBar
+        position="static"
+        sx={{ backgroundColor: "white", boxShadow: "none" }}
+      >
         <List className="nav-link-container">
           <ListItem>
             <Box
@@ -46,7 +46,7 @@ export default function App() {
               src={logo}
               alt="GuardIT logo"
               className="logo"
-              sx={{ml: 15}}
+              sx={{ ml: 15 }}
             ></Box>
           </ListItem>
           <Box className="nav-link-description">
@@ -84,5 +84,6 @@ export default function App() {
         <Route path="/laptop/:id/edit" element={<EditLaptop />} />
       </Routes>
     </Box>
+    </DarkLight>
   );
 }
