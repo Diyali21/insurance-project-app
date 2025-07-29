@@ -2,7 +2,7 @@ import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit } from "@fortawesome/free-solid-svg-icons";
 import {Box, Typography} from "@mui/material";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import EditIcon from "@mui/icons-material/Edit";
 
 export function Laptop({ laptop, deleteBtn }) {
@@ -26,7 +26,7 @@ export function Laptop({ laptop, deleteBtn }) {
         }
     }
 
-
+    const navigate = useNavigate();
 
   const [show, setShow] = useState(true);
 
@@ -39,9 +39,7 @@ export function Laptop({ laptop, deleteBtn }) {
       <Box className="laptop-container">
         <Box className="update-delete">
           {deleteBtn}
-          <Link to={"/laptop/" + laptop.id + "/edit"}>
-            <EditIcon></EditIcon>
-          </Link>
+            <EditIcon onClick={() => navigate("/laptop/" + laptop.id + "/edit")}> </EditIcon>
         </Box>
         <img
           className="laptop-brand"
@@ -66,7 +64,9 @@ export function Laptop({ laptop, deleteBtn }) {
             <h4>Current Value: R{laptop.current_value}</h4>
           </Box>
           <Box className="view-btn-container">
-            <button className="view-btn" onClick={() => setShow(!show)}>{" "} {show ? "View Less" : "View More"}
+            <button className="view-btn" onClick={() => setShow(!show)}>
+              {" "}
+              {show ? "View Less" : "View More"}
             </button>
           </Box>
           <Link to={"/quotes/" + laptop.id}>
