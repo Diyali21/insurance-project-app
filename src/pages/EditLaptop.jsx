@@ -7,6 +7,7 @@ import Button from '@mui/material/Button';
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import * as yup from 'yup';
+import { Box } from "@mui/material";
 
 export function EditLaptop(){
 
@@ -89,7 +90,7 @@ export function EditLaptop(){
   }, [id]);
 
   return (
-    <div className="new-laptop-container">
+    <Box className="new-laptop-container">
       <form className="new-laptop-form" onSubmit={formik.handleSubmit}>
         <Divider sx={{ my: 4 }} />
 
@@ -275,12 +276,12 @@ export function EditLaptop(){
       />
 
        </Grid>
-       <div className="submit-container">
+       <Box className="submit-container">
         <Button color="primary" variant="contained" fullWidth type="submit">
           Edit
         </Button>
-        </div>
+        </Box>
       </form>
-    </div>
+    </Box>
   );
 };
