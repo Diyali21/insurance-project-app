@@ -103,7 +103,7 @@ return (
           <Button
             color="white"
             className="get-cover-btn"
-            onClick={() => generateQuote("Premium", premPrice)}
+            onClick={() => generateQuote("Basic", basicPrice)}
           >
             Get Cover
           </Button>
@@ -143,7 +143,7 @@ return (
           <Button
             color="white"
             className="get-cover-btn"
-            onClick={() => generateQuote("Premium", premPrice)}
+            onClick={() => generateQuote("Standard", stdPrice)}
           >
             Get Cover
           </Button>
