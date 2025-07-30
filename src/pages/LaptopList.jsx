@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import { Laptop } from "../components/Laptop";
 import DeleteIcon from "@mui/icons-material/Delete";
 import IconButton from "@mui/material/IconButton";
-import { Box, Select, TextField, MenuItem, Button } from "@mui/material";
+import { Box, Select, TextField, MenuItem, Button, InputAdornment } from "@mui/material";
+import SearchIcon from "@mui/icons-material/Search";
 
 export function LaptopList() {
   const [laptop, setLaptop] = useState([]);
@@ -63,6 +64,15 @@ export function LaptopList() {
               type="text"
               value={searchTerm}
               onChange={(event) => setSearchTerm(event.target.value)}
+              slotProps={{
+                input: {
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <SearchIcon/>
+                    </InputAdornment>
+                  )
+                }
+              }}
             ></TextField>
             <Button
               variant="contained"
