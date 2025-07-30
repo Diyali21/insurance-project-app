@@ -1,7 +1,7 @@
 export const BRAND_LOGOS = {
-    Lenovo: "https://logos-world.net/wp-content/uploads/2022/07/Lenovo-Logo.png",
-    HP: "https://tse2.mm.bing.net/th/id/OIP.7IEX1sqp0oZ7C8Y9wByESgHaEK?rs=1&pid=ImgDetMain&o=7&rm=3",
-    Dell: "https://th.bing.com/th/id/R.46b0bb509ccb09a91542b76ed96aef47?rik=8w5o1o7Sv84EMg&riu=http%3a%2f%2f1000logos.net%2fwp-content%2fuploads%2f2017%2f07%2fDell-Logo.png&ehk=z1geQtmOd3VwHAuCMFFdK3A7XItYaALS96JmU5yea3E%3d&risl=&pid=ImgRaw&r=0",
-    Asus: "https://logowik.com/content/uploads/images/424_asus.jpg",
-    Apple: "https://thedesignest.net/wp-content/uploads/2020/07/Monochromo-Apple-logo-1.jpg"
-}
+  Lenovo: "https://logos-world.net/wp-content/uploads/2022/07/Lenovo-Logo.png",
+  HP: "https://www.pngmart.com/files/15/Blue-Hewlett-Packard-Logo-PNG-File.png",
+  Dell: "https://th.bing.com/th/id/R.9d600a097ac857c688a1dd0533bec896?rik=zFYIoeR%2fSMdJeA&riu=http%3a%2f%2flogonoid.com%2fimages%2fdell-logo.png&ehk=mNWCUfc06P9yAd7h3lhcWz1CTRgtjKfYPu5HE1NRBJM%3d&risl=&pid=ImgRaw&r=0",
+  Asus: "https://th.bing.com/th/id/R.4a9c4c5d611ad106ebe471db5fcb768a?rik=vDBel9BBnJUD%2bw&pid=ImgRaw&r=0",
+  Apple: "https://www.freeiconspng.com/uploads/apple-icon-4.png",
+};
