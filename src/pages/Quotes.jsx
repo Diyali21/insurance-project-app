@@ -100,7 +100,7 @@ export function Quotes({selectedQuote}){
         <Typography
           variant="body1"
           className="quotes-coverage"
-          sx={{ fontSize: 14, mb: 2, ml: 4 }}
+          sx={{ fontSize: 14, mb: 1.5, ml: 4 }}
         >
           ❌ Hardware Malfunction
         </Typography>
