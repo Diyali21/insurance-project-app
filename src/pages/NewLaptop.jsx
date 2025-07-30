@@ -59,45 +59,45 @@ export function NewLaptop(){
 
   <validationSchema/>
 
-  const formik = useFormik({
-
-    initialValues: {
-      fullName: '',
-      email: '',
-     contactNo: '',
-      brandName: '',
-      model: '',
-      type: '',
-      condition: '',
-      processor: '',
-      sNo: '',
-      purchase_date: '',
-      current_value: '',
-    },
-    validationSchema: validationSchema,
-    onSubmit: async (values) => {
-
-      const newLaptop = {...values, brandImage: BRAND_LOGOS[values.brandName]}
-      await fetch ("https://68871b7e071f195ca97f45fa.mockapi.io/laptops",
-      {
-        method:"POST",
-        body: JSON.stringify(newLaptop),
-        headers:{
-          "Content-type": "application/json",
-        },
-      }
-    );
-      console.log('New Laptop: ', newLaptop);
-      setLaptops([...laptop_details, newLaptop]);
-      navigate('/dashboard');
-    },
-  });
+  const { handleSubmit, handleChange, handleBlur, values, errors, touched, setFieldValue } =
+    useFormik({
+      initialValues: {
+        fullName: "",
+        email: "",
+        contactNo: "",
+        brandName: "",
+        model: "",
+        type: "",
+        condition: "",
+        processor: "",
+        sNo: "",
+        purchase_date: "",
+        current_value: "",
+      },
+      validationSchema: validationSchema,
+      onSubmit: async (values) => {
+        const newLaptop = {
+          ...values,
+          brandImage: BRAND_LOGOS[values.brandName],
+        };
+        await fetch("https://68871b7e071f195ca97f45fa.mockapi.io/laptops", {
+          method: "POST",
+          body: JSON.stringify(newLaptop),
+          headers: {
+            "Content-type": "application/json",
+          },
+        });
+        console.log("New Laptop: ", newLaptop);
+        setLaptops([...laptop_details, newLaptop]);
+        navigate("/dashboard");
+      },
+    });
 
   return (
     <Box>
       <ArrowBack className="back-btn" onClick={() => navigate(-1)}></ArrowBack>
       <Box className="new-laptop-container">
-        <form className="new-laptop-form" onSubmit={formik.handleSubmit}>
+        <form className="new-laptop-form" onSubmit={handleSubmit}>
           <Divider sx={{ my: 4 }} />
 
           <Grid container spacing={2}>
@@ -110,11 +110,11 @@ export function NewLaptop(){
               id="fullName"
               name="fullName"
               label="Full Name"
-              value={formik.values.fullName}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              error={formik.touched.fullName && Boolean(formik.errors.fullName)}
-              helperText={formik.touched.fullName && formik.errors.fullName}
+              value={values.fullName}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              error={touched.fullName && Boolean(errors.fullName)}
+              helperText={touched.fullName && errors.fullName}
             ></TextField>
 
             <TextField
@@ -122,11 +122,11 @@ export function NewLaptop(){
               id="email"
               name="email"
               label="Email Address"
-              value={formik.values.email}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              error={formik.touched.email && Boolean(formik.errors.email)}
-              helperText={formik.touched.email && formik.errors.email}
+              value={values.email}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              error={touched.email && Boolean(errors.email)}
+              helperText={touched.email && errors.email}
             ></TextField>
 
             <NumericFormat
@@ -137,15 +137,15 @@ export function NewLaptop(){
               label="Contact Number"
               format="0#########"
               prefix="+27"
-              value={formik.values.contactNo}
+              value={values.contactNo}
               onValueChange={(values) => {
-                formik.setFieldValue("contactNo", values.value);
+                setFieldValue("contactNo", values.value);
               }}
-              onBlur={formik.handleBlur}
+              onBlur={handleBlur}
               error={
-                formik.touched.contactNo && Boolean(formik.errors.contactNo)
+                touched.contactNo && Boolean(errors.contactNo)
               }
-              helperText={formik.touched.contactNo && formik.errors.contactNo}
+              helperText={touched.contactNo && errors.contactNo}
             />
           </Grid>
 
@@ -162,13 +162,13 @@ export function NewLaptop(){
               id="brandName"
               name="brandName"
               label="Brand"
-              value={formik.values.brandName}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
+              value={values.brandName}
+              onChange={handleChange}
+              onBlur={handleBlur}
               error={
-                formik.touched.brandName && Boolean(formik.errors.brandName)
+                touched.brandName && Boolean(errors.brandName)
               }
-              helperText={formik.touched.brandName && formik.errors.brandName}
+              helperText={touched.brandName && errors.brandName}
             >
               {laptopBrands.map((option) => (
                 <MenuItem key={option} value={option}>
@@ -182,11 +182,11 @@ export function NewLaptop(){
               id="model"
               name="model"
               label="Model"
-              value={formik.values.model}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              error={formik.touched.model && Boolean(formik.errors.model)}
-              helperText={formik.touched.model && formik.errors.model}
+              value={values.model}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              error={touched.model && Boolean(errors.model)}
+              helperText={touched.model && errors.model}
             ></TextField>
 
             <TextField
@@ -195,11 +195,11 @@ export function NewLaptop(){
               id="type"
               name="type"
               label="Type"
-              value={formik.values.type}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              error={formik.touched.type && Boolean(formik.errors.type)}
-              helperText={formik.touched.type && formik.errors.type}
+              value={values.type}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              error={touched.type && Boolean(errors.type)}
+              helperText={touched.type && errors.type}
             >
               {laptopTypes.map((option) => (
                 <MenuItem key={option} value={option}>
@@ -214,13 +214,13 @@ export function NewLaptop(){
               id="condition"
               name="condition"
               label="Condition"
-              value={formik.values.condition}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
+              value={values.condition}
+              onChange={handleChange}
+              onBlur={handleBlur}
               error={
-                formik.touched.condition && Boolean(formik.errors.condition)
+                touched.condition && Boolean(errors.condition)
               }
-              helperText={formik.touched.condition && formik.errors.condition}
+              helperText={touched.condition && errors.condition}
             >
               {conditions.map((option) => (
                 <MenuItem key={option} value={option}>
@@ -235,13 +235,13 @@ export function NewLaptop(){
               id="processor"
               name="processor"
               label="Processor"
-              value={formik.values.processor}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
+              value={values.processor}
+              onChange={handleChange}
+              onBlur={handleBlur}
               error={
-                formik.touched.processor && Boolean(formik.errors.processor)
+                touched.processor && Boolean(errors.processor)
               }
-              helperText={formik.touched.processor && formik.errors.processor}
+              helperText={touched.processor && errors.processor}
             >
               {processors.map((option) => (
                 <MenuItem key={option} value={option}>
@@ -255,11 +255,11 @@ export function NewLaptop(){
               id="sNo"
               name="sNo"
               label="Serial Number"
-              value={formik.values.sNo}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              error={formik.touched.sNo && Boolean(formik.errors.sNo)}
-              helperText={formik.touched.sNo && formik.errors.sNo}
+              value={values.sNo}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              error={touched.sNo && Boolean(errors.sNo)}
+              helperText={touched.sNo && errors.sNo}
             ></TextField>
 
             <TextField
@@ -269,15 +269,15 @@ export function NewLaptop(){
               label="Purchase Date"
               type="date"
               InputLabelProps={{ shrink: true }}
-              value={formik.values.purchase_date}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
+              value={values.purchase_date}
+              onChange={handleChange}
+              onBlur={handleBlur}
               error={
-                formik.touched.purchase_date &&
-                Boolean(formik.errors.purchase_date)
+                touched.purchase_date &&
+                Boolean(errors.purchase_date)
               }
               helperText={
-                formik.touched.purchase_date && formik.errors.purchase_date
+                touched.purchase_date && errors.purchase_date
               }
             ></TextField>
 
@@ -291,17 +291,17 @@ export function NewLaptop(){
               decimalScale={2}
               fixedDecimalScale
               prefix="R"
-              value={formik.values.current_value}
+              value={values.current_value}
               onValueChange={(values) => {
-                formik.setFieldValue("current_value", values.value);
+                setFieldValue("current_value", values.value);
               }}
-              onBlur={formik.handleBlur}
+              onBlur={handleBlur}
               error={
-                formik.touched.current_value &&
-                Boolean(formik.errors.current_value)
+                touched.current_value &&
+                Boolean(errors.current_value)
               }
               helperText={
-                formik.touched.current_value && formik.errors.current_value
+                touched.current_value && errors.current_value
               }
             />
           </Grid>

@@ -1,11 +1,10 @@
 import {
-  Container,
+  Box,
   createTheme,
   CssBaseline,
   FormControlLabel,
   Switch,
-  ThemeProvider,
-  Box
+  ThemeProvider
 } from "@mui/material";
 import { useState } from "react";
 

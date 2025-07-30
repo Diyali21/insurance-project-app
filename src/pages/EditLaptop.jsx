@@ -1,9 +1,9 @@
 import { useFormik } from "formik";
 import { Divider, Grid, MenuItem } from "@mui/material";
 import Typography from "@mui/material/Typography";
-import TextField from '@mui/material/TextField';
+import TextField from "@mui/material/TextField";
 import { NumericFormat } from "react-number-format";
-import Button from '@mui/material/Button';
+import Button from "@mui/material/Button";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import { Box } from "@mui/material";
@@ -12,8 +12,7 @@ import * as React from "react";
 import Snackbar from "@mui/material/Snackbar";
 import Alert from "@mui/material/Alert";
 
-export function EditLaptop(){
-
+export function EditLaptop() {
   const [open, setOpen] = React.useState(false);
 
   const handleClick = () => {
@@ -28,9 +27,7 @@ export function EditLaptop(){
     setOpen(false);
   };
 
-
-
-  const {id} = useParams();
+  const { id } = useParams();
   const [laptop, setLaptop] = useState({
     fullName: "",
     email: "",
@@ -44,67 +41,84 @@ export function EditLaptop(){
     purchase_date: "",
     current_value: "",
   });
-   const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
 
-  const laptopTypes = ['Ultrabook', 'Gaming', 'Workstation', 'Convertible', 'Business', 'Chromebook', 'MacBook'];
-  const conditions = ['New', 'Used', 'Refurbished'];
-    const processors = [
-  'Intel Core i3',
-  'Intel Core i5',
-  'Intel Core i7',
-  'Intel Core i9',
-  'Intel Core Ultra 7',
-  'AMD Ryzen 3',
-  'AMD Ryzen 5',
-  'AMD Ryzen 7',
-  'Apple M2',
-  'Apple M3',
-  'Apple M4',
-  'Qualcomm Snapdragon X Elite',
-];
+  const laptopTypes = [
+    "Ultrabook",
+    "Gaming",
+    "Workstation",
+    "Convertible",
+    "Business",
+    "Chromebook",
+    "MacBook",
+  ];
+  const conditions = ["New", "Used", "Refurbished"];
+  const processors = [
+    "Intel Core i3",
+    "Intel Core i5",
+    "Intel Core i7",
+    "Intel Core i9",
+    "Intel Core Ultra 7",
+    "AMD Ryzen 3",
+    "AMD Ryzen 5",
+    "AMD Ryzen 7",
+    "Apple M2",
+    "Apple M3",
+    "Apple M4",
+    "Qualcomm Snapdragon X Elite",
+  ];
 
   const navigate = useNavigate();
 
-  <validationSchema/>
-  const formik = useFormik({
-
-      initialValues: laptop,
-      validationSchema: validationSchema,
-      onSubmit: async (values) => {
-            await fetch (`https://68871b7e071f195ca97f45fa.mockapi.io/laptops/${id}`,
-            {
-              method:"PUT",
-              body: JSON.stringify(values),
-              headers:{
-                "Content-type": "application/json",
-              },
-            }
-          );
-          navigate("/dashboard");
+  <validationSchema />;
+  const {
+    handleSubmit,
+    handleChange,
+    handleBlur,
+    values,
+    errors,
+    touched,
+    setFieldValue,
+  } = useFormik({
+    initialValues: laptop,
+    enableReinitialize: true,
+    validationSchema: validationSchema,
+    onSubmit: async (values) =>
+      { await fetch(
+        `https://68871b7e071f195ca97f45fa.mockapi.io/laptops/${id}`,
+        {
+          method: "PUT",
+          body: JSON.stringify(values),
+          headers: {
+            "Content-type": "application/json",
           },
-    });
+        }
+      );
+      navigate("/dashboard");
+    },
+  });
 
-     async function getLaptops(id) {
-       setIsLoading(true);
-        const response = await fetch (`https://68871b7e071f195ca97f45fa.mockapi.io/laptops/${id}`);
-        const laptops = await response.json();
-        setIsLoading(false);
-        setLaptop(laptops);
-        formik.setValues(laptops);
+  async function getLaptops(id) {
+    setIsLoading(true);
+    const response = await fetch(
+      `https://68871b7e071f195ca97f45fa.mockapi.io/laptops/${id}`
+    );
+    const laptops = await response.json();
+    setIsLoading(false);
+    setLaptop(laptops);
+    setValues(laptops);
   }
 
   useEffect(() => {
     getLaptops(id);
   }, [id]);
 
-   if (isLoading) {
-     return <h1>Loading...</h1>;
-   }
-
-
+  if (isLoading) {
+    return <h1>Loading...</h1>;
+  }
   return (
     <Box className="new-laptop-container">
-      <form className="new-laptop-form" onSubmit={formik.handleSubmit}>
+      <form className="new-laptop-form" onSubmit={handleSubmit}>
         <Divider sx={{ my: 4 }} />
 
         <Grid container spacing={2}>
@@ -114,11 +128,11 @@ export function EditLaptop(){
             id="fullName"
             name="fullName"
             label="Full Name"
-            value={formik.values.fullName}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            error={formik.touched.fullName && Boolean(formik.errors.fullName)}
-            helperText={formik.touched.fullName && formik.errors.fullName}
+            value={values.fullName}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            error={touched.fullName && Boolean(errors.fullName)}
+            helperText={touched.fullName && errors.fullName}
           ></TextField>
 
           <TextField
@@ -126,11 +140,11 @@ export function EditLaptop(){
             id="email"
             name="email"
             label="Email Address"
-            value={formik.values.email}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            error={formik.touched.email && Boolean(formik.errors.email)}
-            helperText={formik.touched.email && formik.errors.email}
+            value={values.email}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            error={touched.email && Boolean(errors.email)}
+            helperText={touched.email && errors.email}
           ></TextField>
 
           <NumericFormat
@@ -141,13 +155,13 @@ export function EditLaptop(){
             label="Contact Number"
             format="0#########"
             prefix="+27"
-            value={formik.values.contactNo}
+            value={values.contactNo}
             onValueChange={(values) => {
-              formik.setFieldValue("contactNo", values.value);
+              setFieldValue("contactNo", values.value);
             }}
-            onBlur={formik.handleBlur}
-            error={formik.touched.contactNo && Boolean(formik.errors.contactNo)}
-            helperText={formik.touched.contactNo && formik.errors.contactNo}
+            onBlur={handleBlur}
+            error={touched.contactNo && Boolean(errors.contactNo)}
+            helperText={touched.contactNo && errors.contactNo}
           />
         </Grid>
 
@@ -160,11 +174,11 @@ export function EditLaptop(){
             id="brandName"
             name="brandName"
             label="Brand"
-            value={formik.values.brandName}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            error={formik.touched.brandName && Boolean(formik.errors.brandName)}
-            helperText={formik.touched.brandName && formik.errors.brandName}
+            value={values.brandName}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            error={touched.brandName && Boolean(errors.brandName)}
+            helperText={touched.brandName && errors.brandName}
             inputProps={{ readOnly: true }}
           ></TextField>
 
@@ -173,11 +187,11 @@ export function EditLaptop(){
             id="model"
             name="model"
             label="Model"
-            value={formik.values.model}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            error={formik.touched.model && Boolean(formik.errors.model)}
-            helperText={formik.touched.model && formik.errors.model}
+            value={values.model}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            error={touched.model && Boolean(errors.model)}
+            helperText={touched.model && errors.model}
           ></TextField>
 
           <TextField
@@ -186,11 +200,11 @@ export function EditLaptop(){
             id="type"
             name="type"
             label="Type"
-            value={formik.values.type ?? ""}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            error={formik.touched.type && Boolean(formik.errors.type)}
-            helperText={formik.touched.type && formik.errors.type}
+            value={values.type ?? ""}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            error={touched.type && Boolean(errors.type)}
+            helperText={touched.type && errors.type}
           >
             {laptopTypes.map((option) => (
               <MenuItem key={option} value={option}>
@@ -205,11 +219,11 @@ export function EditLaptop(){
             id="condition"
             name="condition"
             label="Condition"
-            value={formik.values.condition ?? ""}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            error={formik.touched.condition && Boolean(formik.errors.condition)}
-            helperText={formik.touched.condition && formik.errors.condition}
+            value={values.condition ?? ""}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            error={touched.condition && Boolean(errors.condition)}
+            helperText={touched.condition && errors.condition}
           >
             {conditions.map((option) => (
               <MenuItem key={option} value={option}>
@@ -224,11 +238,11 @@ export function EditLaptop(){
             id="processor"
             name="processor"
             label="Processor"
-            value={formik.values.processor ?? ""}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            error={formik.touched.processor && Boolean(formik.errors.processor)}
-            helperText={formik.touched.processor && formik.errors.processor}
+            value={values.processor ?? ""}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            error={touched.processor && Boolean(errors.processor)}
+            helperText={touched.processor && errors.processor}
           >
             {processors.map((option) => (
               <MenuItem key={option} value={option}>
@@ -242,11 +256,11 @@ export function EditLaptop(){
             id="sNo"
             name="sNo"
             label="Serial Number"
-            value={formik.values.sNo}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            error={formik.touched.sNo && Boolean(formik.errors.sNo)}
-            helperText={formik.touched.sNo && formik.errors.sNo}
+            value={values.sNo}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            error={touched.sNo && Boolean(errors.sNo)}
+            helperText={touched.sNo && errors.sNo}
           ></TextField>
 
           <TextField
@@ -256,15 +270,15 @@ export function EditLaptop(){
             label="Purchase Date"
             type="date"
             InputLabelProps={{ shrink: true }}
-            value={formik.values.purchase_date}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
+            value={values.purchase_date}
+            onChange={handleChange}
+            onBlur={handleBlur}
             error={
-              formik.touched.purchase_date &&
-              Boolean(formik.errors.purchase_date)
+              touched.purchase_date &&
+              Boolean(errors.purchase_date)
             }
             helperText={
-              formik.touched.purchase_date && formik.errors.purchase_date
+              touched.purchase_date && errors.purchase_date
             }
           ></TextField>
 
@@ -278,17 +292,17 @@ export function EditLaptop(){
             decimalScale={2}
             fixedDecimalScale
             prefix="R"
-            value={formik.values.current_value}
+            value={values.current_value}
             onValueChange={(values) => {
-              formik.setFieldValue("current_value", values.value);
+              setFieldValue("current_value", values.value);
             }}
-            onBlur={formik.handleBlur}
+            onBlur={handleBlur}
             error={
-              formik.touched.current_value &&
-              Boolean(formik.errors.current_value)
+              touched.current_value &&
+              Boolean(errors.current_value)
             }
             helperText={
-              formik.touched.current_value && formik.errors.current_value
+              touched.current_value && errors.current_value
             }
           />
         </Grid>
@@ -316,4 +330,4 @@ export function EditLaptop(){
       </form>
     </Box>
   );
-};
+}
