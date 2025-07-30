@@ -2,7 +2,7 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import EditIcon from "@mui/icons-material/Edit";
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, IconButton } from "@mui/material";
 import Button from "@mui/material/Button";
 import { useState } from "react";
 import { useNavigate } from "react-router";
@@ -36,12 +36,6 @@ export function Laptop({ laptop, deleteBtn }) {
   return (
     <Box className="laptop-list-container">
       <Box className="laptop-container">
-        <Box className="update-delete">
-          {deleteBtn}
-          <EditIcon onClick={() => navigate("/laptop/" + laptop.id + "/edit")}>
-            {" "}
-          </EditIcon>
-        </Box>
         <Box
           component="img"
           className="laptop-brand"
@@ -57,10 +51,15 @@ export function Laptop({ laptop, deleteBtn }) {
             >
               {laptop.model}
             </Typography>
-            <Button className="view-btn" onClick={() => setShow(!show)}>
+            <IconButton className="view-btn" onClick={() => setShow(!show)}>
               {" "}
               {show ? <ExpandLessIcon /> : <ExpandMoreIcon />}
-            </Button>
+            </IconButton>
+          </Box>
+          <Box className="specs-container">
+            <Typography variant="h6" sx={{ mb: 2, fontSize: 17 }}>
+              {laptop.type}
+            </Typography>
             <Typography
               variant="p"
               className="laptop-condition"
@@ -68,28 +67,46 @@ export function Laptop({ laptop, deleteBtn }) {
             >
               {laptop.condition}
             </Typography>
+            <Typography variant="h6" sx={{ mb: 2, fontSize: 17 }}>
+              {laptop.processor}
+            </Typography>
           </Box>
-          <Typography variant="h6" sx={{ mb: 2, fontSize: 17 }}>
-            Type: {laptop.type}
-          </Typography>
-          <Typography variant="h6" sx={{ mb: 2, fontSize: 17 }}>
-            Processor: {laptop.processor}
-          </Typography>
           {show ? (
-            <Box>
-              <Typography variant="h6" sx={{ mb: 2, fontSize: 17 }}>
-                Serial Number: {laptop.sNo}
+            <Box className="other-details">
+              <Typography variant="h6" sx={{ fontSize: 15 }}>
+                Serial Number:
               </Typography>
-              <Typography variant="h6" sx={{ mb: 2, fontSize: 17 }}>
-                Purchase Date: {laptop.purchase_date}
+              <Typography variant="h6" sx={{ fontSize: 15 }}>
+                Purchase Date:
               </Typography>
-              <Typography variant="h6" sx={{ mb: 2, fontSize: 17 }}>
-                Current Value: R{laptop.current_value}
+              <Typography variant="h6" sx={{ fontSize: 15 }}>
+                Current Value:
+              </Typography>
+              <Typography variant="h6" sx={{ mb: 2, fontSize: 15 }}>
+                {laptop.sNo}
+              </Typography>
+              <Typography variant="h6" sx={{ mb: 2, fontSize: 15 }}>
+                {laptop.purchase_date}
+              </Typography>
+              <Typography variant="h6" sx={{ fontSize: 15 }}>
+                R{laptop.current_value}
               </Typography>
             </Box>
           ) : (
             ""
           )}
+          <Box className="update-delete">
+            {deleteBtn}
+            <Button
+              variant="contained"
+              aria-label="update"
+              color="success"
+              onClick={() => navigate("/laptop/" + laptop.id + "/edit")}
+              sx={{minWidth: "90px"}}
+            >
+              <EditIcon /> Edit
+            </Button>
+          </Box>
           <Box>
             <Button
               variant="outlined"

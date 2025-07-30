@@ -68,10 +68,10 @@ export function LaptopList() {
                 input: {
                   startAdornment: (
                     <InputAdornment position="start">
-                      <SearchIcon/>
+                      <SearchIcon />
                     </InputAdornment>
-                  )
-                }
+                  ),
+                },
               }}
             ></TextField>
             <Button
@@ -84,7 +84,7 @@ export function LaptopList() {
           </Box>
           <Box>
             <Select
-            size="small"
+              size="small"
               value={searchBrand}
               onChange={(event) => setSearchBrand(event.target.value)}
             >
@@ -111,12 +111,16 @@ export function LaptopList() {
             key={index}
             laptop={laptop}
             deleteBtn={
-              <IconButton
+              <Button
+                variant="contained"
                 aria-label="delete"
+                color="error"
+                sx={{ minWidth: "90px" }}
                 onClick={() => deleteLaptop(laptop.id)}
               >
                 <DeleteIcon />
-              </IconButton>
+                Delete
+              </Button>
             }
           />
         ))}
