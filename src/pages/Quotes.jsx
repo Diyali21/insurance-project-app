@@ -60,7 +60,7 @@ export function Quotes({selectedQuote}){
       <Box className="quotes-content">
         <Typography
           variant="h5"
-          sx={{ mt: 1, fontWeight: "bold", fontSize: 28 }}
+          sx={{ mt: 1, fontWeight: "bold", fontSize: 26 }}
         >
           Basic
         </Typography>
@@ -119,7 +119,7 @@ export function Quotes({selectedQuote}){
       <Box className="quotes-content">
         <Typography
           variant="h5"
-          sx={{ mt: 1, fontWeight: "bold", fontSize: 28 }}
+          sx={{ mt: 1, fontWeight: "bold", fontSize: 26 }}
         >
           Standard
         </Typography>
@@ -178,7 +178,7 @@ export function Quotes({selectedQuote}){
       <Box className="quotes-content">
         <Typography
           variant="h5"
-          sx={{ mt: 1, fontWeight: "bold", fontSize: 28 }}
+          sx={{ mt: 1, fontWeight: "bold", fontSize: 26 }}
         >
           Premium
         </Typography>
