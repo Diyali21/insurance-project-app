@@ -3,6 +3,8 @@ import { Box, Button, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import { CalculatePrice } from "../components/CalculatePrice";
+import { Carousel } from "react-responsive-3d-carousel";
+import "react-responsive-3d-carousel/dist/styles.css";
 
 export function Quotes({selectedQuote}){
 
@@ -51,143 +53,197 @@ export function Quotes({selectedQuote}){
     selectedQuote(quoteDetails);
     navigate("/confirm");
   }
-return (
-  <Box>
-    <ArrowBack className="back-btn" onClick={() => navigate(-1)}></ArrowBack>
-    <Box className="quotes-card-container">
-      <Box className="basic-card">
-        <Box className="quotes-content">
-          <Typography variant="h4" sx={{ mb: 3, mt: 3, fontWeight: "bold" }}>
-            Basic
-          </Typography>
-          <Typography variant="h5" sx={{ mb: 3, mt: 3, fontWeight: "bold" }}>
-            R{basicPrice} pm
-          </Typography>
-        </Box>
+
+
+  const QuoteDisplay = [
+    <Box className="basic-card">
+      <Box className="quotes-content">
+        <Typography
+          variant="h5"
+          sx={{ mt: 1, fontWeight: "bold", fontSize: 28 }}
+        >
+          Basic
+        </Typography>
+        <Typography variant="h6" sx={{ mb: 1, fontWeight: "bold" }}>
+          R{basicPrice} pm
+        </Typography>
+      </Box>
+      <Box className="coverage">
         <Typography
           variant="body1"
           className="quotes-coverage"
-          sx={{ fontSize: 18, mb: 3 }}
+          sx={{ fontSize: 14, mb: 2, ml: 4 }}
         >
           ✅ Theft Protection
         </Typography>
         <Typography
           variant="body1"
           className="quotes-coverage"
-          sx={{ fontSize: 18, mb: 3 }}
+          sx={{ fontSize: 14, mb: 2, ml: 4 }}
         >
           ❌ Liquid Damage
         </Typography>
         <Typography
           variant="body1"
           className="quotes-coverage"
-          sx={{ fontSize: 18, mb: 3 }}
+          sx={{ fontSize: 14, mb: 2, ml: 4 }}
         >
           ❌ Power Surge Damage
         </Typography>
         <Typography
           variant="body1"
           className="quotes-coverage"
-          sx={{ fontSize: 18, mb: 3 }}
+          sx={{ fontSize: 14, mb: 2, ml: 4 }}
         >
           ❌ Accidental Damage
         </Typography>
         <Typography
           variant="body1"
           className="quotes-coverage"
-          sx={{ fontSize: 18, mb: 3 }}
+          sx={{ fontSize: 14, mb: 2, ml: 4 }}
         >
           ❌ Hardware Malfunction
         </Typography>
-        <Box className="get-cover-btn">
-          <Button
-            color="white"
-            className="get-cover-btn"
-            onClick={() => generateQuote("Basic", basicPrice)}
-          >
-            Get Cover
-          </Button>
-        </Box>
       </Box>
-      <Box className="std-card">
-        <Box className="quotes-content">
-          <Typography variant="h4" sx={{ mb: 3, mt: 3, fontWeight: "bold" }}>
-            Standard
-          </Typography>
-          <Typography variant="h5" sx={{ mb: 3, mt: 3, fontWeight: "bold" }}>
-            R{stdPrice} pm
-          </Typography>
-        </Box>
-        <Typography
-          variant="body1"
-          className="quotes-coverage"
-          sx={{ fontSize: 18, mb: 3 }}>
-            ✅ Theft Protection</Typography>
-        <Typography
-          variant="body1"
-          className="quotes-coverage"
-          sx={{ fontSize: 18, mb: 3 }}>✅ Liquid Damage</Typography>
-        <Typography
-          variant="body1"
-          className="quotes-coverage"
-          sx={{ fontSize: 18, mb: 3 }}>✅ Power Surge Damage</Typography>
-        <Typography
-          variant="body1"
-          className="quotes-coverage"
-          sx={{ fontSize: 18, mb: 3 }}>❌ Accidental Damage</Typography>
-        <Typography
-          variant="body1"
-          className="quotes-coverage"
-          sx={{ fontSize: 18, mb: 3 }}>❌ Hardware Malfunction</Typography>
-        <Box className="get-cover-btn">
-          <Button
-            color="white"
-            className="get-cover-btn"
-            onClick={() => generateQuote("Standard", stdPrice)}
-          >
-            Get Cover
-          </Button>
-        </Box>
+      <Box className="get-cover-btn">
+        <Button
+          color="white"
+          className="get-cover-btn"
+          onClick={() => generateQuote("Basic", basicPrice)}
+        >
+          Get Cover
+        </Button>
       </Box>
-      <Box className="premium-card">
-        <Box className="quotes-content">
-          <Typography variant="h4" sx={{ mb: 3, mt: 3, fontWeight: "bold" }}>
-            Premium
-          </Typography>
-          <Typography variant="h5" sx={{ mb: 3, mt: 3, fontWeight: "bold" }}>
-            R{premPrice} pm
-          </Typography>
-        </Box>
+    </Box>,
+    <Box className="std-card">
+      <Box className="quotes-content">
         <Typography
-          variant="body1"
-          className="quotes-coverage"
-          sx={{ fontSize: 18, mb: 3 }}>✅ Theft Protection</Typography>
-        <Typography
-          variant="body1"
-          className="quotes-coverage"
-          sx={{ fontSize: 18, mb: 3 }}>✅ Liquid Damage</Typography>
-        <Typography
-          variant="body1"
-          className="quotes-coverage"
-          sx={{ fontSize: 18, mb: 3 }}>✅ Power Surge Damage</Typography>
-        <Typography
-          variant="body1"
-          className="quotes-coverage"
-          sx={{ fontSize: 18, mb: 3 }}>✅ Accidental Damage</Typography>
-        <Typography
-          variant="body1"
-          className="quotes-coverage"
-          sx={{ fontSize: 18, mb: 3 }}>✅ Hardware Malfunction</Typography>
-        <Box className="get-cover-btn">
-          <Button
-            color="white"
-            className="get-cover-btn"
-            onClick={() => generateQuote("Premium", premPrice)}
-          >
-            Get Cover
-          </Button>
-        </Box>
+          variant="h5"
+          sx={{ mt: 1, fontWeight: "bold", fontSize: 28 }}
+        >
+          Standard
+        </Typography>
+        <Typography variant="h6" sx={{ mb: 1, fontWeight: "bold" }}>
+          R{stdPrice} pm
+        </Typography>
       </Box>
+      <Box className="coverage">
+      <Typography
+        variant="body1"
+        className="quotes-coverage"
+        sx={{ fontSize: 14, mb: 2, ml: 4 }}
+      >
+        ✅ Theft Protection
+      </Typography>
+      <Typography
+        variant="body1"
+        className="quotes-coverage"
+        sx={{ fontSize: 14, mb: 2, ml: 4 }}
+      >
+        ✅ Liquid Damage
+      </Typography>
+      <Typography
+        variant="body1"
+        className="quotes-coverage"
+        sx={{ fontSize: 14, mb: 2, ml: 4 }}
+      >
+        ✅ Power Surge Damage
+      </Typography>
+      <Typography
+        variant="body1"
+        className="quotes-coverage"
+        sx={{ fontSize: 14, mb: 2, ml: 4 }}
+      >
+        ❌ Accidental Damage
+      </Typography>
+      <Typography
+        variant="body1"
+        className="quotes-coverage"
+        sx={{ fontSize: 14, mb: 2, ml: 4 }}
+      >
+        ❌ Hardware Malfunction
+      </Typography>
+      </Box>
+      <Box className="get-cover-btn">
+        <Button
+          color="white"
+          className="get-cover-btn"
+          onClick={() => generateQuote("Standard", stdPrice)}
+        >
+          Get Cover
+        </Button>
+      </Box>
+    </Box>,
+    <Box className="premium-card">
+      <Box className="quotes-content">
+        <Typography
+          variant="h5"
+          sx={{ mt: 1, fontWeight: "bold", fontSize: 28 }}
+        >
+          Premium
+        </Typography>
+        <Typography variant="h6" sx={{ mb: 1, fontWeight: "bold" }}>
+          R{premPrice} pm
+        </Typography>
+      </Box>
+      <Box className="coverage">
+      <Typography
+        variant="body1"
+        className="quotes-coverage"
+        sx={{ fontSize: 14, mb: 2, ml: 4 }}
+      >
+        ✅ Theft Protection
+      </Typography>
+      <Typography
+        variant="body1"
+        className="quotes-coverage"
+        sx={{ fontSize: 14, mb: 2, ml: 4 }}
+      >
+        ✅ Liquid Damage
+      </Typography>
+      <Typography
+        variant="body1"
+        className="quotes-coverage"
+        sx={{ fontSize: 14, mb: 2, ml: 4 }}
+      >
+        ✅ Power Surge Damage
+      </Typography>
+      <Typography
+        variant="body1"
+        className="quotes-coverage"
+        sx={{ fontSize: 14, mb: 2, ml: 4 }}
+      >
+        ✅ Accidental Damage
+      </Typography>
+      <Typography
+        variant="body1"
+        className="quotes-coverage"
+        sx={{ fontSize: 14, mb: 2, ml: 4 }}
+      >
+        ✅ Hardware Malfunction
+      </Typography>
+      </Box>
+      <Box className="get-cover-btn">
+        <Button
+          color="white"
+          className="get-cover-btn"
+          onClick={() => generateQuote("Premium", premPrice)}
+        >
+          Get Cover
+        </Button>
+      </Box>
+    </Box>,
+  ];
+
+return (
+  <Box>
+    <ArrowBack className="back-btn" onClick={() => navigate(-1)}></ArrowBack>
+    <Box className="quotes-card-container">
+      <Carousel
+        items={QuoteDisplay}
+        startIndex={0}
+        onChange={(i) => console.log(i)}
+      ></Carousel>
     </Box>
   </Box>
 );

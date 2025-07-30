@@ -34,7 +34,6 @@ export default function App() {
   const selectedQuote = (quoteDetails) => {
     setQuote(quoteDetails);
   };
-  const theme = useTheme();
 
   return (
     <DarkLight>
