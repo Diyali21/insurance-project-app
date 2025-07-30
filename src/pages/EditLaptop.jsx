@@ -1,16 +1,15 @@
-import { useFormik } from "formik";
-import { Divider, Grid, MenuItem } from "@mui/material";
-import Typography from "@mui/material/Typography";
-import TextField from "@mui/material/TextField";
-import { NumericFormat } from "react-number-format";
-import Button from "@mui/material/Button";
-import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router";
-import { Box } from "@mui/material";
-import { validationSchema } from "../components/ValidationSchema";
-import * as React from "react";
-import Snackbar from "@mui/material/Snackbar";
+import { Box, Divider, Grid, MenuItem } from "@mui/material";
 import Alert from "@mui/material/Alert";
+import Button from "@mui/material/Button";
+import Snackbar from "@mui/material/Snackbar";
+import TextField from "@mui/material/TextField";
+import Typography from "@mui/material/Typography";
+import { useFormik } from "formik";
+import * as React from "react";
+import { useEffect, useState } from "react";
+import { NumericFormat } from "react-number-format";
+import { useNavigate, useParams } from "react-router";
+import { validationSchema } from "../components/ValidationSchema";
 
 export function EditLaptop() {
   const [open, setOpen] = React.useState(false);
@@ -118,7 +117,7 @@ export function EditLaptop() {
   }
   return (
     <Box className="new-laptop-container">
-      <form className="new-laptop-form" onSubmit={handleSubmit}>
+      <Box component="form" className="new-laptop-form" onSubmit={handleSubmit}>
         <Divider sx={{ my: 4 }} />
 
         <Grid container spacing={2}>
@@ -327,7 +326,7 @@ export function EditLaptop() {
             </Alert>
           </Snackbar>
         </Box>
-      </form>
+      </Box>
     </Box>
   );
 }

@@ -1,37 +1,33 @@
-import { LaptopList } from "./pages/LaptopList";
+import DarkModeIcon from "@mui/icons-material/DarkMode";
+import HomeSharpIcon from "@mui/icons-material/HomeSharp";
+import LaptopChromebookSharpIcon from "@mui/icons-material/LaptopChromebookSharp";
+import LightModeIcon from "@mui/icons-material/LightMode";
+import { Box, Button, List, ListItem, Toolbar, Typography } from "@mui/material";
+import AppBar from "@mui/material/AppBar";
+import Paper from "@mui/material/Paper";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+import { useState } from "react";
+import {
+  Link,
+  Navigate,
+  Route,
+  Routes,
+  useNavigate
+} from "react-router";
+import "./css/confirm.css";
 import "./css/dashboard.css";
 import "./css/navBar.css";
 import "./css/new-laptop.css";
-import "./css/quotes.css";
-import "./css/confirm.css";
 import "./css/not-found.css";
-import "./styles.css";
-import {
-  Routes,
-  Route,
-  Link,
-  Navigate,
-  useParams,
-  useNavigate,
-} from "react-router";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHouse, faLaptop } from "@fortawesome/free-solid-svg-icons";
-import { NewLaptop } from "./pages/NewLaptop";
-import { useState } from "react";
-import { Quotes } from "./pages/Quotes";
-import { NotFound } from "./pages/NotFound";
+import "./css/quotes.css";
 import logo from "./images/GuardIT_logo.png";
 import { Confirm } from "./pages/Confirm";
 import { EditLaptop } from "./pages/EditLaptop";
-import { Box, List, ListItem, Typography, useTheme, Button, Toolbar } from "@mui/material";
-import AppBar from "@mui/material/AppBar";
-import HomeSharpIcon from "@mui/icons-material/HomeSharp";
-import LaptopChromebookSharpIcon from "@mui/icons-material/LaptopChromebookSharp";
-import { DarkLight } from "./components/DarkLight";
-import { ThemeProvider, createTheme } from "@mui/material/styles";
-import Paper from "@mui/material/Paper";
-import LightModeIcon from "@mui/icons-material/LightMode";
-import DarkModeIcon from "@mui/icons-material/DarkMode";
+import { LaptopList } from "./pages/LaptopList";
+import { NewLaptop } from "./pages/NewLaptop";
+import { NotFound } from "./pages/NotFound";
+import { Quotes } from "./pages/Quotes";
+import "./styles.css";
 
 export default function App() {
   const [quoteDetails, setQuote] = useState();
@@ -58,7 +54,7 @@ export default function App() {
             <AppBar position="static"
             color="default"
             sx={{background:"transparent", boxShadow:"none"}}>
-              <Toolbar>
+              <Toolbar className="spacing">
                 <Button className="logo" color="inherit">
                   <Box
                     component="img"

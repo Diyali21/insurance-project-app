@@ -14,9 +14,6 @@
   gap: 10px;
 }
 
-.submit-container {
-  margin-top: 30px;
-}
 
 @media (max-width: 815px) {
   .new-laptop-form {

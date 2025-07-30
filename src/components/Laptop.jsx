@@ -2,7 +2,7 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import EditIcon from "@mui/icons-material/Edit";
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { Box, Typography, IconButton } from "@mui/material";
+import { Box, IconButton, Typography } from "@mui/material";
 import Button from "@mui/material/Button";
 import { useState } from "react";
 import { useNavigate } from "react-router";

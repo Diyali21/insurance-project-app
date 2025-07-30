@@ -1,10 +1,10 @@
 import ArrowBack from "@mui/icons-material/ArrowBack";
 import { Box, Button, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router";
-import { CalculatePrice } from "../components/CalculatePrice";
 import { Carousel } from "react-responsive-3d-carousel";
 import "react-responsive-3d-carousel/dist/styles.css";
+import { useNavigate, useParams } from "react-router";
+import { CalculatePrice } from "../components/CalculatePrice";
 
 export function Quotes({selectedQuote}){
 
@@ -31,7 +31,7 @@ export function Quotes({selectedQuote}){
     return <h1>Loading...</h1>;
   }
 
-    const basicPrice = laptop ? CalculatePrice(laptop, "Basic").totalPrice : 0;
+  const basicPrice = laptop ? CalculatePrice(laptop, "Basic").totalPrice : 0;
   const stdPrice = laptop ? CalculatePrice(laptop, "Standard").totalPrice : 0;
   const premPrice = laptop ? CalculatePrice(laptop, "Premium").totalPrice : 0;
   console.log(id);

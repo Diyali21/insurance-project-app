@@ -1,9 +1,8 @@
+import DeleteIcon from "@mui/icons-material/Delete";
+import SearchIcon from "@mui/icons-material/Search";
+import { Box, Button, InputAdornment, MenuItem, Select, TextField } from "@mui/material";
 import { useEffect, useState } from "react";
 import { Laptop } from "../components/Laptop";
-import DeleteIcon from "@mui/icons-material/Delete";
-import IconButton from "@mui/material/IconButton";
-import { Box, Select, TextField, MenuItem, Button, InputAdornment } from "@mui/material";
-import SearchIcon from "@mui/icons-material/Search";
 
 export function LaptopList() {
   const [laptop, setLaptop] = useState([]);

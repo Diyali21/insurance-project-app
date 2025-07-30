@@ -2,6 +2,7 @@ import ArrowBack from "@mui/icons-material/ArrowBack";
 import LaptopIcon from "@mui/icons-material/Laptop";
 import PersonIcon from "@mui/icons-material/Person";
 import { Box } from "@mui/material";
+import Alert from "@mui/material/Alert";
 import Button from '@mui/material/Button';
 import Divider from "@mui/material/Divider";
 import Grid from "@mui/material/Grid";
@@ -16,7 +17,6 @@ import { NumericFormat } from "react-number-format";
 import { useNavigate } from "react-router";
 import { BRAND_LOGOS } from '../components/BRAND_LOGOS';
 import { validationSchema } from '../components/ValidationSchema';
-import Alert from "@mui/material/Alert";
 
 
 export function NewLaptop(){
@@ -97,7 +97,9 @@ export function NewLaptop(){
     <Box>
       <ArrowBack className="back-btn" onClick={() => navigate(-1)}></ArrowBack>
       <Box className="new-laptop-container">
-        <form className="new-laptop-form" onSubmit={handleSubmit}>
+        <Box
+        component="form"
+        className="new-laptop-form" onSubmit={handleSubmit}>
           <Divider sx={{ my: 4 }} />
 
           <Grid container spacing={2}>
@@ -327,7 +329,7 @@ export function NewLaptop(){
             </Snackbar>
 
           </Box>
-        </form>
+        </Box>
       </Box>
     </Box>
   );
