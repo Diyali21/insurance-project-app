@@ -100,19 +100,20 @@ export function Laptop({ laptop, deleteBtn }) {
             <Button
               variant="contained"
               aria-label="update"
-              color="success"
+              color="secondary"
               onClick={() => navigate("/laptop/" + laptop.id + "/edit")}
-              sx={{minWidth: "90px"}}
+              sx={{ minWidth: "90px" }}
             >
               <EditIcon /> Edit
             </Button>
           </Box>
           <Box>
             <Button
-              variant="outlined"
+              variant="contained"
+              color="primary"
               className="quote-btn"
               onClick={() => navigate("/quotes/" + laptop.id)}
-              sx={{ fontSize: 15 }}
+              sx={{ fontSize: 15}}
             >
               Get A Quote <ArrowForwardIcon />
             </Button>
