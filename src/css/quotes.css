@@ -56,27 +56,13 @@
   perspective: 1000px
 }
 
-/* .get-cover-btn {
-  font-size: 18px;
-  margin-top: 0;
-  display: inline-block;
-  font-size: 20px;
-  font-weight: 500;
-  margin-bottom: auto;
-  max-width: 100%;
-  /* background-color: #008080; */
-  /* color: white;
-  width: 165px;
-  margin-left: 100px;
-}  */
 
 .get-cover-btn {
   margin-top: 0;
   margin-bottom: auto;
   align-self: center;
   background-color: #008080;
-  width: 150px;
-  border-radius: 20px;
+  width: 175px;
   color: white;
 }
 
@@ -92,5 +78,5 @@
 }
 
 .coverage{
-  margin-left: 20px;
+  margin-left: 30px;
 }

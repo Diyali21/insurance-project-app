@@ -60,7 +60,7 @@ export function Quotes({selectedQuote}){
       <Box className="quotes-content">
         <Typography
           variant="h5"
-          sx={{ mt: 1, fontWeight: "bold", fontSize: 26 }}
+          sx={{ mt: 1, fontWeight: "bold", fontSize: 24 }}
         >
           Basic
         </Typography>
@@ -100,7 +100,7 @@ export function Quotes({selectedQuote}){
         <Typography
           variant="body1"
           className="quotes-coverage"
-          sx={{ fontSize: 14, mb: 1.5, ml: 4 }}
+          sx={{ fontSize: 14, mb: 1, ml: 4 }}
         >
           ❌ Hardware Malfunction
         </Typography>
@@ -119,7 +119,7 @@ export function Quotes({selectedQuote}){
       <Box className="quotes-content">
         <Typography
           variant="h5"
-          sx={{ mt: 1, fontWeight: "bold", fontSize: 26 }}
+          sx={{ mt: 1, fontWeight: "bold", fontSize: 24 }}
         >
           Standard
         </Typography>
@@ -128,41 +128,41 @@ export function Quotes({selectedQuote}){
         </Typography>
       </Box>
       <Box className="coverage">
-      <Typography
-        variant="body1"
-        className="quotes-coverage"
-        sx={{ fontSize: 14, mb: 2, ml: 4 }}
-      >
-        ✅ Theft Protection
-      </Typography>
-      <Typography
-        variant="body1"
-        className="quotes-coverage"
-        sx={{ fontSize: 14, mb: 2, ml: 4 }}
-      >
-        ✅ Liquid Damage
-      </Typography>
-      <Typography
-        variant="body1"
-        className="quotes-coverage"
-        sx={{ fontSize: 14, mb: 2, ml: 4 }}
-      >
-        ✅ Power Surge Damage
-      </Typography>
-      <Typography
-        variant="body1"
-        className="quotes-coverage"
-        sx={{ fontSize: 14, mb: 2, ml: 4 }}
-      >
-        ❌ Accidental Damage
-      </Typography>
-      <Typography
-        variant="body1"
-        className="quotes-coverage"
-        sx={{ fontSize: 14, mb: 2, ml: 4 }}
-      >
-        ❌ Hardware Malfunction
-      </Typography>
+        <Typography
+          variant="body1"
+          className="quotes-coverage"
+          sx={{ fontSize: 14, mb: 2, ml: 4 }}
+        >
+          ✅ Theft Protection
+        </Typography>
+        <Typography
+          variant="body1"
+          className="quotes-coverage"
+          sx={{ fontSize: 14, mb: 2, ml: 4 }}
+        >
+          ✅ Liquid Damage
+        </Typography>
+        <Typography
+          variant="body1"
+          className="quotes-coverage"
+          sx={{ fontSize: 14, mb: 2, ml: 4 }}
+        >
+          ✅ Power Surge Damage
+        </Typography>
+        <Typography
+          variant="body1"
+          className="quotes-coverage"
+          sx={{ fontSize: 14, mb: 2, ml: 4 }}
+        >
+          ❌ Accidental Damage
+        </Typography>
+        <Typography
+          variant="body1"
+          className="quotes-coverage"
+          sx={{ fontSize: 14, mb: 1, ml: 4 }}
+        >
+          ❌ Hardware Malfunction
+        </Typography>
       </Box>
       <Box className="get-cover-btn">
         <Button
@@ -178,7 +178,7 @@ export function Quotes({selectedQuote}){
       <Box className="quotes-content">
         <Typography
           variant="h5"
-          sx={{ mt: 1, fontWeight: "bold", fontSize: 26 }}
+          sx={{ mt: 1, fontWeight: "bold", fontSize: 24 }}
         >
           Premium
         </Typography>
@@ -187,41 +187,41 @@ export function Quotes({selectedQuote}){
         </Typography>
       </Box>
       <Box className="coverage">
-      <Typography
-        variant="body1"
-        className="quotes-coverage"
-        sx={{ fontSize: 14, mb: 2, ml: 4 }}
-      >
-        ✅ Theft Protection
-      </Typography>
-      <Typography
-        variant="body1"
-        className="quotes-coverage"
-        sx={{ fontSize: 14, mb: 2, ml: 4 }}
-      >
-        ✅ Liquid Damage
-      </Typography>
-      <Typography
-        variant="body1"
-        className="quotes-coverage"
-        sx={{ fontSize: 14, mb: 2, ml: 4 }}
-      >
-        ✅ Power Surge Damage
-      </Typography>
-      <Typography
-        variant="body1"
-        className="quotes-coverage"
-        sx={{ fontSize: 14, mb: 2, ml: 4 }}
-      >
-        ✅ Accidental Damage
-      </Typography>
-      <Typography
-        variant="body1"
-        className="quotes-coverage"
-        sx={{ fontSize: 14, mb: 2, ml: 4 }}
-      >
-        ✅ Hardware Malfunction
-      </Typography>
+        <Typography
+          variant="body1"
+          className="quotes-coverage"
+          sx={{ fontSize: 14, mb: 2, ml: 4 }}
+        >
+          ✅ Theft Protection
+        </Typography>
+        <Typography
+          variant="body1"
+          className="quotes-coverage"
+          sx={{ fontSize: 14, mb: 2, ml: 4 }}
+        >
+          ✅ Liquid Damage
+        </Typography>
+        <Typography
+          variant="body1"
+          className="quotes-coverage"
+          sx={{ fontSize: 14, mb: 2, ml: 4 }}
+        >
+          ✅ Power Surge Damage
+        </Typography>
+        <Typography
+          variant="body1"
+          className="quotes-coverage"
+          sx={{ fontSize: 14, mb: 2, ml: 4 }}
+        >
+          ✅ Accidental Damage
+        </Typography>
+        <Typography
+          variant="body1"
+          className="quotes-coverage"
+          sx={{ fontSize: 14, mb: 1, ml: 4 }}
+        >
+          ✅ Hardware Malfunction
+        </Typography>
       </Box>
       <Box className="get-cover-btn">
         <Button
