@@ -23,7 +23,7 @@ import { NotFound } from "./pages/NotFound";
 import logo from "./images/GuardIT_logo.png";
 import { Confirm } from "./pages/Confirm";
 import { EditLaptop } from "./pages/EditLaptop";
-import { Box, List, ListItem } from "@mui/material";
+import { Box, List, ListItem, Typography, useTheme } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 import HomeSharpIcon from "@mui/icons-material/HomeSharp";
 import LaptopChromebookSharpIcon from "@mui/icons-material/LaptopChromebookSharp";
@@ -34,59 +34,83 @@ export default function App() {
   const selectedQuote = (quoteDetails) => {
     setQuote(quoteDetails);
   };
+  const theme = useTheme();
 
   return (
     <DarkLight>
-    <Box className="App">
-      <AppBar
-        position="static"
-        sx={{ backgroundColor: "white", boxShadow: "none" }}
-      >
-        <List className="nav-link-container">
-          <ListItem>
-            <Box
-              component="img"
-              src={logo}
-              alt="GuardIT logo"
-              className="logo"
-              sx={{ ml: 15 }}
-            ></Box>
-          </ListItem>
-          <Box className="nav-link-description">
-            <ListItem className="spacing-words">
-              <Link className="nav-link" to="/dashboard">
-                <HomeSharpIcon sx={{ fontSize: 25, verticalAlign: "middle" }} />{" "}
-                Dashboard
-              </Link>
+      <Box className="App">
+        <AppBar
+          position="static"
+          sx={{ background: "transparent", boxShadow: "none" }}
+        >
+          <List className="nav-link-container">
+            <ListItem>
+              <Box
+                component="img"
+                src={logo}
+                alt="GuardIT logo"
+                className="logo"
+                sx={{ ml: 15 }}
+              ></Box>
             </ListItem>
-            <ListItem className="spacing-words">
-              <Link className="nav-link" to="/laptop/new">
-                <LaptopChromebookSharpIcon
-                  sx={{ fontSize: 25, verticalAlign: "middle" }}
-                />{" "}
-                Register Laptop
-              </Link>
-            </ListItem>
-          </Box>
-        </List>
-      </AppBar>
-      <Routes>
-        <Route path="" element={<Navigate to="/dashboard" replace />} />
-        <Route path="home" element={<Navigate to="/dashboard" replace />} />
-        <Route path="/dashboard" element={<LaptopList />} />
-        <Route path="/laptop/new" element={<NewLaptop />} />
-        <Route
-          path="quotes/:id"
-          element={<Quotes selectedQuote={selectedQuote} />}
-        />
-        <Route
-          path="/confirm"
-          element={<Confirm selectedQuote={quoteDetails} />}
-        />
-        <Route path="*" element={<NotFound />} />
-        <Route path="/laptop/:id/edit" element={<EditLaptop />} />
-      </Routes>
-    </Box>
+            <Box className="nav-link-description">
+              <ListItem className="spacing-words">
+                <Link className="nav-link" to="/dashboard">
+                  {" "}
+                  <Typography
+                    variant="h6"
+                    color="primary"
+                    sx={{ fontSize: 20 }}
+                  >
+                    <HomeSharpIcon
+                      color="primary"
+                      sx={{
+                        fontSize: 25,
+                        verticalAlign: "middle",
+                      }}
+                    />{" "}
+                    Dashboard
+                  </Typography>
+                </Link>
+              </ListItem>
+              <ListItem className="spacing-words">
+                <Link className="nav-link" to="/laptop/new">
+                  <Typography
+                    variant="h6"
+                    color="primary"
+                    sx={{ fontSize: 20 }}
+                  >
+                    <LaptopChromebookSharpIcon
+                      color="primary"
+                      sx={{
+                        fontSize: 25,
+                        verticalAlign: "middle",
+                      }}
+                    />{" "}
+                    Register Laptop
+                  </Typography>
+                </Link>
+              </ListItem>
+            </Box>
+          </List>
+        </AppBar>
+        <Routes>
+          <Route path="" element={<Navigate to="/dashboard" replace />} />
+          <Route path="home" element={<Navigate to="/dashboard" replace />} />
+          <Route path="/dashboard" element={<LaptopList />} />
+          <Route path="/laptop/new" element={<NewLaptop />} />
+          <Route
+            path="quotes/:id"
+            element={<Quotes selectedQuote={selectedQuote} />}
+          />
+          <Route
+            path="/confirm"
+            element={<Confirm selectedQuote={quoteDetails} />}
+          />
+          <Route path="*" element={<NotFound />} />
+          <Route path="/laptop/:id/edit" element={<EditLaptop />} />
+        </Routes>
+      </Box>
     </DarkLight>
   );
 }

@@ -78,7 +78,7 @@ export function NewLaptop(){
     onSubmit: async (values) => {
 
       const newLaptop = {...values, brandImage: BRAND_LOGOS[values.brandName]}
-      const response = await fetch ("https://68871b7e071f195ca97f45fa.mockapi.io/laptops",
+      await fetch ("https://68871b7e071f195ca97f45fa.mockapi.io/laptops",
       {
         method:"POST",
         body: JSON.stringify(newLaptop),
